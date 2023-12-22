@@ -14,7 +14,7 @@ Then the user registration should be not successful
 
 Scenario: Successfully login as Admin
 Given valid admin user name and password
-When admin write username and password correct
+When admin write username and password correct 
 Then enter as admin
 
 

@@ -10,7 +10,7 @@ public class adminSteps {
 	Admin ad=new Admin();
 	product p=new product();
 
-	
+	//
 	@Given("log in as admin")
 	public void log_in_as_admin() {
 		c = new SignUpCustomer("malak jawabreh",123);

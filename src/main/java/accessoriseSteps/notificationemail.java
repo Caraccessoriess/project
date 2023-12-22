@@ -6,7 +6,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class notificationemail {
-
+//
 	int flagemail=0;
 	int confirmf=0;
 	int fillf=0;

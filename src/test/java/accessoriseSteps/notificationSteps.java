@@ -9,7 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class notificationSteps {
-	
+	//
 	notificationemail n=new notificationemail("s12028161@stu.najah.edu", "MALAK0593844970", "s12027933@stu.najah.edu");
 	@Given("customer in menu page")
 	public void customer_in_menu_page() 

@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 public class roles {
 
 	SignUpCustomer c ;
-	
+	//
 	@Given("admin write valid user name and password")
 	public void admin_write_valid_user_name_and_password() {
 		c = new SignUpCustomer("malak jawabreh",123);

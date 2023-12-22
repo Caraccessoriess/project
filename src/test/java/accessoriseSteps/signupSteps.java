@@ -14,7 +14,7 @@ import accessoriseSteps.signupSteps;
 
 public class signupSteps {
 	SignUpCustomer c ;
-	
+	//
 	@Given("name,passward,email and address")
 	public void name_passward_email_and_address() {
 

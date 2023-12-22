@@ -12,7 +12,7 @@ Feature: Users Roles
     Then open Customer page
     
       Scenario: Installer Role
-    Given Installer write valid user name and password
+    Given Installer write valid user name and password 
     When succesfully log in as Installer 
     Then open Installer page
    

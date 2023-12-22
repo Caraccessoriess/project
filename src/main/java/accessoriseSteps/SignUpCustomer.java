@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import accessoriseSteps.SignUpCustomer;
 
 public class SignUpCustomer {
-	private int pass;
+	private int pass;//
 	private String name;
 	private String email;
 	private String address;

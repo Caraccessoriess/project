@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import accessoriseSteps.SignUpCustomer;
 
 public class MainApp 
-{
+{//
 	private static SignUpCustomer cus = new SignUpCustomer();
 	private static report rep = new report();
 	private static ProfileCustomer prof=new ProfileCustomer();

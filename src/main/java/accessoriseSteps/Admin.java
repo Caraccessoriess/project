@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Admin {
-
+//
 	private static int optionf=0;
 	private static int addf=0;
 	private static int editf=0;
