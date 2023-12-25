@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 public class notificationemail {
 //
+    private static final Logger LOGGER = Logger.getLogger(notificationemail.class.getName());
+
 	int flagemail=0;
 	int confirmf=0;
 	int fillf=0;
@@ -58,7 +60,8 @@ public class notificationemail {
             
 
         } catch (MessagingException e) {
-                logger.error("An error occurred: " + e.getMessage(), e);
+        	LOGGER.log(Level.INFO,"An error occurred: " + e.getMessage(), e);
+        	
         }
 }
 	public void setcustf(int i) {
