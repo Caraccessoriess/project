@@ -39,27 +39,27 @@ public String getadd() {
 	
 	return address;
 }
-public String getphone() {
+public static String getphone() {
 	
 	return phone;
 }
-public String getmodel() {
+public static String getmodel() {
 	
 	return model;
 }
-    public int gettotalprice() {
+    public static int gettotalprice() {
 		
 		return totalprice;
 	}
-    public List<String> getproductNames() 
+    public static List<String> getproductNames() 
 	{ 
 		return productNames;
 	}
-	public void setemail(String email) {
+	public static void setemail(String email) {
 		
 		this.email=email;
 	}
-	public List<installation> getallOrder() 
+	public static List<installation> getallOrder() 
 	{ 
 		return allOrder;
 	}
@@ -135,96 +135,98 @@ public String getmodel() {
 		System.out.println("\n Total Price = " +totalprice);
 	}
 	public void checkinst() {
-		
-		int flag=0;
-		
-		for(int i=0;i<order.size();i++)
-		{
-			if(order.get(i).getavailability() == 0)
-			{
-				System.out.println(order.get(i).getname() + " is Sold Out , Do you want to conferm order without this product?");
-				input = new Scanner(System.in);
-				int n= Integer.parseInt(input.nextLine());
-				if(n==1)
-				{
-					order.remove(i);
-				}
-				else 
-				{
-					flag=10;
-				}
-			}
-		}
-		if(flag == 0)
-		{
-		int number=0;
-		System.out.println("\nPLease Fill this Form\n");
-		System.out.println("\nEnter Your Car Model:");
-		input = new Scanner(System.in);
-	  model = input.nextLine();
-		
-		System.out.println("\nEnter Your Address :");
-		input = new Scanner(System.in);
-		address = input.nextLine();
-		
-		System.out.println("\nEnter Your Phone:");
-		input = new Scanner(System.in);
-	  phone = input.nextLine();
-		
-		instflag = installreq();
-		while(instflag==1)
-		{
-			printdate();
-			System.out.println("\nEnter Your prefered Date:");
-			input = new Scanner(System.in);
-			number= Integer.parseInt(input.nextLine());
-			if(number <= date.size())
-			{
-				datee=date.get(number-1);
-				instflag=0;
-			}
-			else 
-			{
-				System.out.println("\n Choose valid Date:");
-			}
-		}
-	
-		productNames.clear();
-		//add all products in the order to productNames
-		for (int i = 0; i < order.size(); i++)
-		{
-			productNames.add(order.get(i).getname());
-		}
-		
-		
-		
-		
-		
-		//add all things to the history array
-		
-		
-		String status="not arrived";
-		int total=totalprice;
-		allOrder.add(new installation(email,productNames,total,status,datee,model,phone,address));
-		
-		order.clear();
-		totalprice=0;
-		datee="";
-//		for (int i = 0; i < allOrder.size(); i++)
-//		{
-//			System.out.println(allOrder.get(i).getemail());
-//			System.out.println(allOrder.get(i).getstatus());
-//			System.out.println(allOrder.get(i).gettotalprice());
-//			System.out.println(allOrder.get(i).getproductNames());
-//		}
-//		
-		System.out.println("\nSuccessfully Order\n");
-		
-		 notificationemail notification = new notificationemail("s12028161@stu.najah.edu", "MALAK0593844970", email);
-		 notification.sendEmail("Successfully Order","Your order is confirmed ! ..");
-		}
-	}
-	
+    int flag = 0;
+
+    checkSoldOutProducts();
+
+    if (flag == 0) {
+        getUserInformation();
+
+        while (installreq() == 1) {
+            selectInstallationDate();
+        }
+
+        processOrder();
+        sendConfirmationEmail();
+    }
+}
+
+private void checkSoldOutProducts() {
+    for (int i = 0; i < order.size(); i++) {
+        if (order.get(i).getavailability() == 0) {
+            handleSoldOutProduct(i);
+        }
+    }
+}
+
+private void handleSoldOutProduct(int index) {
+    System.out.println(order.get(index).getname() + " is Sold Out, Do you want to confirm the order without this product?");
+
+	 input = new Scanner(System.in);
+    int n = Integer.parseInt(input.nextLine());
+
+    if (n == 1) {
+        order.remove(index);
+    } else {
+        flag = 10;
+    }
+}
+
+private void getUserInformation() {
+    int number = 0;
+
+    System.out.println("\nPlease Fill in this Form\n");
+
+    System.out.println("\nEnter Your Car Model:");
+    model = getInput();
+
+    System.out.println("\nEnter Your Address:");
+    address = getInput();
+
+    System.out.println("\nEnter Your Phone:");
+    phone = getInput();
+}
+private String getInput() {
+    input = new Scanner(System.in);
+    return input.nextLine();
+}
+
+private void selectInstallationDate() {
+    printdate();
+    System.out.println("\nEnter Your preferred Date:");
+    input = new Scanner(System.in);
+    int number = Integer.parseInt(input.nextLine());
+
+    if (number <= date.size()) {
+        datee = date.get(number - 1);
+    } else {
+        System.out.println("\nChoose a valid Date:");
+    }
+}
+
+private void processOrder() {
+    productNames.clear();
+
+    for (int i = 0; i < order.size(); i++) {
+        productNames.add(order.get(i).getname());
+    }
+
+    String status = "not arrived";
+    int total = totalprice;
+    allOrder.add(new installation(email, productNames, total, status, datee, model, phone, address));
+     order.clear();
+    totalprice = 0;
+    datee = "";
+
+    System.out.println("\nSuccessfully Ordered\n");
+}
+
+private void sendConfirmationEmail() {
+    notificationemail notification = new notificationemail("s12028161@stu.najah.edu", "MALAK0593844970", email);
+    notification.sendEmail("Successfully Ordered", "Your order is confirmed!");
+}
+
+
 	
 	public int installreq()
 	{
