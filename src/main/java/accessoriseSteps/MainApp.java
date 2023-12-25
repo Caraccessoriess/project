@@ -1,9 +1,9 @@
 package accessoriseSteps;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
-import accessoriseSteps.SignUpCustomer;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +23,7 @@ public class MainApp
 	private static Scanner input3;
 	private static String addtoorder="1. Add to Order \n";
 	private static String back="2. Back \n";
+	private static String add="1. Add \n";
 	static int fad = 0;
 	static int fcs = 0;
 	static int fin = 0;
@@ -296,8 +297,8 @@ public class MainApp
 										pro.printint();
 										int number6 = Integer.parseInt(input3.nextLine());
 										pro.printdetails(number6);
-										LOGGER.log(Level.INFO,"1. Add to Order \n");
-										LOGGER.log(Level.INFO,"2. Back \n");
+										LOGGER.log(Level.INFO,addtoorder);
+										LOGGER.log(Level.INFO,back);
 										input3 = new Scanner(System.in);
 										int number7 = Integer.parseInt(input3.nextLine());
 										switch (number7) {
@@ -305,8 +306,8 @@ public class MainApp
 											LOGGER.log(Level.INFO,"Enter The Quantity: \n");
 											input3 = new Scanner(System.in);
 											int number8 = Integer.parseInt(input3.nextLine());
-											LOGGER.log(Level.INFO,"1. Add \n");
-											LOGGER.log(Level.INFO,"2. Back \n");
+											LOGGER.log(Level.INFO,add);
+											LOGGER.log(Level.INFO,back);
 											input3 = new Scanner(System.in);
 											int number9 = Integer.parseInt(input3.nextLine());
 											switch (number9) {
@@ -320,6 +321,7 @@ public class MainApp
 												default:
 													break;
 											}
+											break;
 										}
 										case 2: {
 											flag6 = 0;
@@ -406,8 +408,8 @@ public class MainApp
 											LOGGER.log(Level.INFO,"Enter The Quantity: \n");
 											input3 = new Scanner(System.in);
 											int number8 = Integer.parseInt(input3.nextLine());
-											LOGGER.log(Level.INFO,"1. Add \n");
-											LOGGER.log(Level.INFO,"2. Back \n");
+											LOGGER.log(Level.INFO,add);
+											LOGGER.log(Level.INFO,back);
 											input3 = new Scanner(System.in);
 											int number9 = Integer.parseInt(input3.nextLine());
 											switch (number9) {
@@ -422,7 +424,7 @@ public class MainApp
 													break;
 
 											}
-
+                                                                                   break;
 										}
 										case 2: {
 											flag6 = 0;
@@ -461,7 +463,7 @@ public class MainApp
 							while (flag7 == 1) {
 								inst.printorder();
 								LOGGER.log(Level.INFO,"1. Confirm Order \n");
-								LOGGER.log(Level.INFO,"2. Back \n");
+								LOGGER.log(Level.INFO,back);
 								input3 = new Scanner(System.in);
 								int number9 = Integer.parseInt(input3.nextLine());
 
@@ -556,9 +558,8 @@ public class MainApp
 								
 								}
 							
-							
-						
 						}
+							break;
 						}
 						case 3: {
 							flag4 = 0;
