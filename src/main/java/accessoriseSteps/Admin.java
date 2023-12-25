@@ -20,6 +20,7 @@ public class Admin {
 	private static int informationf=0;
 	private static int extf=0;
 	private static int elecf=0;
+	private static String enternumber="Please choose the number:";
 	
 	private static final List<String> catagory = new ArrayList<String>();
 	product p=new product();
@@ -49,9 +50,9 @@ public class Admin {
 	
 	public void initcatagory()
 	{
-		catagory.add(new String("Interior"));
-		catagory.add(new String("Exterior"));
-		catagory.add(new String("Electronic"));
+		catagory.add(("Interior"));
+		catagory.add(("Exterior"));
+		catagory.add(("Electronic"));
 		
 	}
 	public void showcatagory()
@@ -79,7 +80,7 @@ public class Admin {
 	
 	public void addcatagory(String catag)
 	{
-		catagory.add(new String(catag));
+		catagory.add(catag);
 		
 	}
 	public String checkcatagory() {
@@ -123,7 +124,7 @@ public class Admin {
 	{
 		showinterior();
 		Scanner input3 = new Scanner(System.in);
-		LOGGER.log(Level.INFO,"Please choose the number:");
+		LOGGER.log(Level.INFO,enternumber);
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=interior.size())
 		{
@@ -144,7 +145,7 @@ public class Admin {
 	{
 		showExterior();
 		Scanner input3 = new Scanner(System.in);
-		LOGGER.log(Level.INFO,"Please choose the number:");
+		LOGGER.log(Level.INFO,enternumber);
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=exterior.size())
 		{
@@ -165,7 +166,7 @@ public class Admin {
 	{
 		showelec();
 		Scanner input3 = new Scanner(System.in);
-		LOGGER.log(Level.INFO,"Please choose the number:");
+		LOGGER.log(Level.INFO,enternumber);
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=elect.size())
 		{
