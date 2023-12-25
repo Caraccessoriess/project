@@ -122,7 +122,7 @@ public class SignUpCustomer {
 		System.out.println("\n enter address =");
 		input2 = new Scanner(System.in);
 		String address = input2.next();
-		if (name == " " && email == " " && address == " ") {
+		if (name.equals(" ") && email.equals(" ") && address.equals(" ")) {
 			System.out.println("\n Please fill out all data ! ");
 		}
 		for (int i = 0; i < mylist.size(); i++) {
