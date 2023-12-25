@@ -20,7 +20,20 @@ public class Admin {
 	private static int informationf=0;
 	private static int extf=0;
 	private static int elecf=0;
+	
 	private static String enternumber="Please choose the number:";
+	
+	private static String name="1. Name:";
+	private static String description="2. Description";
+	private static String price="4. Price:";
+	private static String image="3. Image";
+	private static String install="5. Install:";
+	private static String quantity="6. Quantity";
+	
+	private static String editp="Please choose the number of product to edit:";
+	private static String editinf="Please choose the number of information to edit:";
+	
+	
 	
 	private static final List<String> catagory = new ArrayList<String>();
 	product p=new product();
@@ -188,16 +201,16 @@ public class Admin {
 	private void editinterior() 
 	{
 		 Scanner input3 = new Scanner(System.in);
-			LOGGER.log(Level.INFO,"Please choose the number of product to edit:");
+			LOGGER.log(Level.INFO,editp);
 			int number = Integer.parseInt(input3.nextLine());
 			
-			LOGGER.log(Level.INFO,"Please choose the number of information to edit:");
-			LOGGER.log(Level.INFO,"1. Name");
-			LOGGER.log(Level.INFO,"2. Description");
-			LOGGER.log(Level.INFO,"3. image");
-			LOGGER.log(Level.INFO,"4. price");
-			LOGGER.log(Level.INFO,"5. install");
-			LOGGER.log(Level.INFO,"6. quantity");
+			LOGGER.log(Level.INFO,editinf);
+			LOGGER.log(Level.INFO,name);
+			LOGGER.log(Level.INFO,description);
+			LOGGER.log(Level.INFO,image);
+			LOGGER.log(Level.INFO,price);
+			LOGGER.log(Level.INFO,install);
+			LOGGER.log(Level.INFO,quantity);
 			int option = Integer.parseInt(input3.nextLine());
 			if(option==1)
 			{
@@ -249,16 +262,16 @@ public class Admin {
 	private void editexterior() 
 	{
 		 Scanner input3 = new Scanner(System.in);
-			LOGGER.log(Level.INFO,"Please choose the number of product to edit:");
+			LOGGER.log(Level.INFO,editp);
 			int number = Integer.parseInt(input3.nextLine());
 			
-			LOGGER.log(Level.INFO,"Please choose the number of information to edit:");
-			LOGGER.log(Level.INFO,"1. Name");
-			LOGGER.log(Level.INFO,"2. Description");
-			LOGGER.log(Level.INFO,"3. image");
-			LOGGER.log(Level.INFO,"4. price");
-			LOGGER.log(Level.INFO,"5. install");
-			LOGGER.log(Level.INFO,"6. quantity");
+			LOGGER.log(Level.INFO,editinf);
+			LOGGER.log(Level.INFO,name);
+			LOGGER.log(Level.INFO,description);
+			LOGGER.log(Level.INFO,image);
+			LOGGER.log(Level.INFO,price);
+			LOGGER.log(Level.INFO,install);
+			LOGGER.log(Level.INFO,quantity);
 			int option = Integer.parseInt(input3.nextLine());
 			if(option==1)
 			{
@@ -309,16 +322,16 @@ public class Admin {
 	private void editelect() 
 	{
 		 Scanner input3 = new Scanner(System.in);
-			LOGGER.log(Level.INFO,"Please choose the number of product to edit:");
+			LOGGER.log(Level.INFO,editp);
 			int number = Integer.parseInt(input3.nextLine());
 			
-			LOGGER.log(Level.INFO,"Please choose the number of information to edit:");
-			LOGGER.log(Level.INFO,"1. Name");
-			LOGGER.log(Level.INFO,"2. Description");
-			LOGGER.log(Level.INFO,"3. image");
-			LOGGER.log(Level.INFO,"4. price");
-			LOGGER.log(Level.INFO,"5. install");
-			LOGGER.log(Level.INFO,"6. quantity");
+			LOGGER.log(Level.INFO,editinf);
+			LOGGER.log(Level.INFO,name);
+			LOGGER.log(Level.INFO,description);
+			LOGGER.log(Level.INFO,image);
+			LOGGER.log(Level.INFO,price);
+			LOGGER.log(Level.INFO,install);
+			LOGGER.log(Level.INFO,quantity);
 			int option = Integer.parseInt(input3.nextLine());
 			if(option==1)
 			{
