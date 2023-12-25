@@ -12,14 +12,6 @@ public class Admin {
 
 	private static int optionf=0;
 	
-	private static int editf=0;
-	private static int safetyf=0;
-	private static int deletef=0;
-	private static int interiorf=0;
-	private static int productf=0;
-	private static int informationf=0;
-	private static int extf=0;
-	private static int elecf=0;
 	
 	private static String enternumber="Please choose the number:";
 	
@@ -633,12 +625,12 @@ public class Admin {
 	     showcatagory();
 	}
 	public void seteditf(int i) {
-		this.editf=i;
+		int editf=i;
 		
 	}
 	public void setsafetyf(int i) {
 		// TODO Auto-generated method stub
-		this.safetyf=i;
+		int safetyf=i;
 	}
 	public void editcatagory(String edit,int n) {
 		
@@ -646,12 +638,12 @@ public class Admin {
 		
 	}
 	public void setdeletef(int i) {
-		this.deletef=i;
+		int deletef=i;
 		
 	}
 	public void setinteriorf(int i) {
 		// TODO Auto-generated method stub
-		this.interiorf=i;
+		int interiorf=i;
 	}
 	public String checkinterior() {
 		
@@ -669,11 +661,11 @@ public String checkelec() {
 	return elect.get(elect.size()-1).getname();
 }
 	public void setproduct(int i) {
-		this.productf=i;
+		int productf=i;
 		
 	}
 	public void setinformation(int i) {
-	this.informationf=i;
+	int informationf=i;
 		
 	}
 	public String checknameinterior() {
@@ -708,11 +700,11 @@ public String checknameelectronic() {
 		inst.printdate();
 	}
 	public void setextf(int i) {
-		extf=i;
+		int extf=i;
 		
 	}
 	public void setelecf(int i) {
-		elecf=i;
+		int elecf=i;
 		
 	}
 
