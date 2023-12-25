@@ -25,6 +25,7 @@ public class Admin {
 	private static String add=". Add";
 	private static String edit=". Edit";
 	private static String back=". Back";
+	private static String delete=". Delete";
 	
 	private static String editp="Please choose the number of product to edit:";
 	private static String editinf="Please choose the number of information to edit:";
@@ -73,13 +74,13 @@ public class Admin {
 		LOGGER.log(Level.INFO, x + ". " + catagory.get(i));
 		}
 		x++;
-	    LOGGER.log(Level.INFO, x + ". Add");
+	    LOGGER.log(Level.INFO, x + add);
 	    x++;
-	   LOGGER.log(Level.INFO, x + ". Edit");
+	   LOGGER.log(Level.INFO, x + edit);
 	    x++;
-	    LOGGER.log(Level.INFO, x + ". Delete");
+	    LOGGER.log(Level.INFO, x + delete);
 	    x++;
-	   LOGGER.log(Level.INFO, x + ". Back");
+	   LOGGER.log(Level.INFO, x + back);
 	    
 	}
 	public void setaddf(int i) {
