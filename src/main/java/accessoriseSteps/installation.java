@@ -39,27 +39,27 @@ public String getadd() {
 	
 	return address;
 }
-public static String getphone() {
+public  String getphone() {
 	
 	return phone;
 }
-public static String getmodel() {
+public  String getmodel() {
 	
 	return model;
 }
-    public static int gettotalprice() {
+    public  int gettotalprice() {
 		
 		return totalprice;
 	}
-    public static List<String> getproductNames() 
+    public  List<String> getproductNames() 
 	{ 
 		return productNames;
 	}
-	public static void setemail(String email) {
+	public  void setemail(String email) {
 		
 		this.email=email;
 	}
-	public static List<installation> getallOrder() 
+	public  List<installation> getallOrder() 
 	{ 
 		return allOrder;
 	}
