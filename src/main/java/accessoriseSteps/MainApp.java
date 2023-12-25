@@ -521,7 +521,7 @@ public class MainApp
 								}
 							
 							
-							break;
+						
 						}
 						}
 						case 3: {
