@@ -1,9 +1,3 @@
-package accessoriseSteps;
-
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class MainApp {
     private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
     private static SignUpCustomer cus = new SignUpCustomer();
@@ -12,36 +6,43 @@ public class MainApp {
     private static Admin adm = new Admin();
     private static product pro = new product();
     private static installation inst = new installation();
+    private static Scanner input;
+    private static Scanner input1;
+    private static Scanner input2;
+    private static Scanner input3;
+    private static String addtoorder = "1. Add to Order \n";
+    private static String back = "2. Back \n";
+    private static String add = "1. Add \n";
+    static int fad = 0;
+    static int fcs = 0;
+    static int fin = 0;
 
     public static void main(String[] args) {
-        initialize();
-        startApplication();
+        initializeComponents();
+        executeMainLoop();
     }
 
-    private static void initialize() {
+    private static void initializeComponents() {
         cus.init();
         pro.initproduct();
         inst.initdate();
         adm.initcatagory();
+        input = new Scanner(System.in);
     }
 
-    private static void startApplication() {
-        Scanner input = new Scanner(System.in);
+    private static void executeMainLoop() {
         int flag = 1;
 
         while (flag == 1) {
-            LOGGER.log(Level.INFO, "***************** Car Accessories Company ****************\n");
-            LOGGER.log(Level.INFO, "1. Sign Up for New Account. \n");
-            LOGGER.log(Level.INFO, "2. Log In \n");
-
+            displayMainMenu();
             int number = Integer.parseInt(input.nextLine());
 
             switch (number) {
                 case 1:
-                    signUpMenu();
+                    handleSignUp();
                     break;
                 case 2:
-                    logInMenu();
+                    handleLogin();
                     break;
                 default:
                     break;
@@ -49,23 +50,29 @@ public class MainApp {
         }
     }
 
-    private static void signUpMenu() {
+    private static void displayMainMenu() {
+        LOGGER.log(Level.INFO, "****** Car Accessories Company *******\n");
+        LOGGER.log(Level.INFO, "1. Sign Up for New Account. \n");
+        LOGGER.log(Level.INFO, "2. Log In \n");
+    }
+
+    private static void handleSignUp() {
         int flag2 = 1;
-        Scanner input1 = new Scanner(System.in);
+        input1 = new Scanner(System.in);
 
         while (flag2 == 1) {
-            LOGGER.log(Level.INFO, "1. As Admin: \n");
-            LOGGER.log(Level.INFO, "2. As Customer: \n");
-            LOGGER.log(Level.INFO, "3. As Installer: \n");
-            LOGGER.log(Level.INFO, "4. Close \n");
+            displaySignUpOptions();
             int number1 = Integer.parseInt(input1.nextLine());
 
             switch (number1) {
                 case 1:
+                    handleAdminSignUp();
+                    break;
                 case 2:
+                    handleCustomerSignUp();
+                    break;
                 case 3:
-                    LOGGER.log(Level.INFO, "Please your Password from " + (number1 + 2) + " digits only\n");
-                    handleSignUp(number1);
+                    handleInstallerSignUp();
                     break;
                 case 4:
                     flag2 = 0;
@@ -76,22 +83,40 @@ public class MainApp {
         }
     }
 
-    private static void handleSignUp(int userType) {
-        int userTypeFlag = userType == 1 ? 1 : 0; // Adjust userTypeFlag based on your logic
-        cus.recordinformation(userTypeFlag);
+    private static void displaySignUpOptions() {
+        LOGGER.log(Level.INFO, "1. As Admin: \n");
+        LOGGER.log(Level.INFO, "2. As Customer: \n");
+        LOGGER.log(Level.INFO, "3. As Installer: \n");
+        LOGGER.log(Level.INFO, "4. Close \n");
     }
 
-    private static void logInMenu() {
+    private static void handleAdminSignUp() {
+        LOGGER.log(Level.INFO, "Please enter your Password (3 digits only):\n");
+        fad = 1;
+        cus.recordinformation();
+    }
+
+    private static void handleCustomerSignUp() {
+        LOGGER.log(Level.INFO, "Please enter your Password (4 digits only):\n");
+        fcs = 1;
+        cus.recordinformation();
+    }
+
+    private static void handleInstallerSignUp() {
+        LOGGER.log(Level.INFO, "Please enter your Password (5 digits only):\n");
+        fin = 1;
+        cus.recordinformation();
+    }
+
+    private static void handleLogin() {
         int n = cus.login();
 
         while (n == 0) {
-            Scanner input2 = new Scanner(System.in);
+            input2 = new Scanner(System.in);
             int flag3 = 1;
 
             while (flag3 == 1) {
-                LOGGER.log(Level.INFO, "1. Try Again: \n");
-                LOGGER.log(Level.INFO, "2. Sign up: \n");
-                LOGGER.log(Level.INFO, "3. Close \n");
+                displayLoginOptions();
                 int number3 = Integer.parseInt(input2.nextLine());
 
                 switch (number3) {
@@ -99,7 +124,7 @@ public class MainApp {
                         n = cus.login();
                         break;
                     case 2:
-                        signUpMenu();
+                        handleCustomerSignUpAfterLogin();
                         flag3 = 0;
                         break;
                     case 3:
@@ -115,336 +140,334 @@ public class MainApp {
             }
         }
 
-        if (n == 1) {
-            adminMenu();
-        } else if (n == 2) {
-            customerMenu();
-        } else if (n == 3) {
-            installerMenu();
-        }
+        handleLoggedInUser(n);
     }
 
-    private static void adminMenu() {
-        Scanner input3 = new Scanner(System.in);
-        int flag4 = 1;
+    private static void displayLoginOptions() {
+        LOGGER.log(Level.INFO, "1. Try Again: \n");
+        LOGGER.log(Level.INFO, "2. Sign up: \n");
+        LOGGER.log(Level.INFO, "3. Close \n");
+    }
 
-        while (flag4 == 1) {
-            LOGGER.log(Level.INFO, "1. Products \n");
-            LOGGER.log(Level.INFO, "2. User Accounts \n");
-            LOGGER.log(Level.INFO, "3. Installation Appointment\n");
-            LOGGER.log(Level.INFO, "4. Generate Report \n");
-            LOGGER.log(Level.INFO, "5. Sign Out \n");
-            int number4 = Integer.parseInt(input3.nextLine());
+    private static void handleCustomerSignUpAfterLogin() {
+        int flag2 = 1;
+        input1 = new Scanner(System.in);
 
-            switch (number4) {
+        while (flag2 == 1) {
+            displaySignUpOptions();
+            int number1 = Integer.parseInt(input1.nextLine());
+
+            switch (number1) {
                 case 1:
-                    adm.showcatagory();
-                    int option = Integer.parseInt(input3.nextLine());
-                    adm.chooseOption(option);
-                    break;
                 case 2:
-                    adm.showaccount();
-                    break;
                 case 3:
-                    adm.showinstallation();
+                    handleAdminSignUp();
+                    flag2 = 0;
                     break;
                 case 4:
-                    rep.showreport();
-                    break;
-                case 5:
-                    flag4 = 0;
+                    flag2 = 0;
                     break;
                 default:
                     break;
             }
+        }
+    }
+    private static void handleLoggedInUser(int userType) {
+    switch (userType) {
+        case 1:
+            handleAdminLoggedIn();
+            break;
+        case 2:
+            handleCustomerLoggedIn();
+            break;
+        case 3:
+            handleInstallerLoggedIn();
+            break;
+        default:
+            break;
+    }
+}
+
+private static void handleAdminLoggedIn() {
+    input3 = new Scanner(System.in);
+    int flag4 = 1;
+
+    while (flag4 == 1) {
+        displayAdminOptions();
+        int number4 = Integer.parseInt(input3.nextLine());
+
+        switch (number4) {
+            case 1:
+                adm.showcatagory();
+                int option = Integer.parseInt(input3.nextLine());
+                adm.choseoption(option);
+                break;
+            case 2:
+                adm.showaccount();
+                break;
+            case 3:
+                adm.showinstallation();
+                break;
+            case 4:
+                rep.showreport();
+                break;
+            case 5:
+                flag4 = 0;
+                break;
+            default:
+                break;
         }
     }
+}
 
-    private static void customerMenu() {
-        Scanner input3 = new Scanner(System.in);
-        int flag4 = 1;
-        prof.setName(cus.getName());
+private static void displayAdminOptions() {
+    LOGGER.log(Level.INFO, "1. Products \n");
+    LOGGER.log(Level.INFO, "2. User Accounts \n");
+    LOGGER.log(Level.INFO, "3. Installation Appointment\n");
+    LOGGER.log(Level.INFO, "4. Generate Report \n");
+    LOGGER.log(Level.INFO, "5. Sign Out \n");
+}
 
-        while (flag4 == 1) {
-            LOGGER.log(Level.INFO, "1. Profile \n");
-            LOGGER.log(Level.INFO, "2. Products \n");
-            LOGGER.log(Level.INFO, "3. Make Order \n");
-            LOGGER.log(Level.INFO, "4. History \n");
-            LOGGER.log(Level.INFO, "5. Sign Out \n");
-            int number4 = Integer.parseInt(input3.nextLine());
+private static void handleCustomerLoggedIn() {
+    input3 = new Scanner(System.in);
+    int flag4 = 1;
+    prof.setname(cus.getname());
 
-            switch (number4) {
-                case 1:
-                    editProfile();
-                    break;
-                case 2:
-                    pro.setProductFlag(1);
-                    handleProductsMenu();
-                    break;
-                case 3:
-                    LOGGER.log(Level.INFO, "order \n");
-                    inst.setEmail(cus.getEmail());
-                    handleOrderMenu();
-                    break;
-                case 4:
-                    prof.setEmail(cus.getEmail());
-                    prof.showHistory();
-                    break;
-                case 5:
-                    flag4 = 0;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+    while (flag4 == 1) {
+        displayCustomerOptions();
+        int number4 = Integer.parseInt(input3.nextLine());
 
-    private static void editProfile() {
-        LOGGER.log(Level.INFO, "\n\n If you want to edit your information choose its number :");
-
-        Scanner input3 = new Scanner(System.in);
-        int flag11 = 1;
-
-        while (flag11 == 1) {
-            prof.getNameToEdit();
-            int number11 = Integer.parseInt(input3.nextLine());
-
-            switch (number11) {
-                case 1:
-                    LOGGER.log(Level.INFO, "Write the new Name :");
-                    input3 = new Scanner(System.in);
-                    String name = input3.nextLine();
-                    prof.changeName(name);
-                    LOGGER.log(Level.INFO, "success");
-                    break;
-                case 2:
-                    LOGGER.log(Level.INFO, "Write the current Password :");
-                    input3 = new Scanner(System.in);
-                    int pass = Integer.parseInt(input3.nextLine());
-                    prof.checkPassword(pass);
-                    LOGGER.log(Level.INFO, "Write the new Password :");
-                    input3 = new Scanner(System.in);
-                    int passNew = Integer.parseInt(input3.nextLine());
-                    prof.changePassword(passNew);
-                    break;
-                case 3:
-                    LOGGER.log(Level.INFO, "You can't edit your email.");
-                    break;
-                case 4:
-                    LOGGER.log(Level.INFO, "Write the new Address :");
-                    input3 = new Scanner(System.in);
-                    String add = input3.nextLine();
-                    prof.changeAddress(add);
-                    break;
-                case 5:
-                    flag11 = 0;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
-    private static void handleProductsMenu() {
-        Scanner input3 = new Scanner(System.in);
-        int flag5 = 1;
-
-        while (flag5 == 1) {
-            LOGGER.log(Level.INFO, "1. Interior \n");
-            LOGGER.log(Level.INFO, "2. Exterior \n");
-            LOGGER.log(Level.INFO, "3. Electronics \n");
-            LOGGER.log(Level.INFO, "4. Search \n");
-            LOGGER.log(Level.INFO, "5. Back \n");
-            int number5 = Integer.parseInt(input3.nextLine());
-
-            switch (number5) {
-                case 1:
-                    handleInteriorMenu();
-                    break;
-                case 2:
-                    handleExteriorMenu();
-                    break;
-                case 3:
-                    handleElectronicsMenu();
-                    break;
-                case 4:
-                    handleSearchMenu();
-                    break;
-                case 5:
-                    flag5 = 0;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
-    private static void handleInteriorMenu() {
-        Scanner input3 = new Scanner(System.in);
-        int flag6 = 1;
-
-        while (flag6 == 1) {
-            pro.printInterior();
-            int number6 = Integer.parseInt(input3.nextLine());
-            pro.printDetailsInterior(number6);
-            LOGGER.log(Level.INFO, "1. Add to Order \n");
-            LOGGER.log(Level.INFO, "2. Back \n");
-            input3 = new Scanner(System.in);
-            int number7 = Integer.parseInt(input3.nextLine());
-
-            switch (number7) {
-                case 1:
-                    LOGGER.log(Level.INFO, "Enter The Quantity: \n");
-                    input3 = new Scanner(System.in);
-                    int number8 = Integer.parseInt(input3.nextLine());
-                    LOGGER.log(Level.INFO, "1. Add \n");
-                    LOGGER.log(Level.INFO, "2. Back \n");
+        switch (number4) {
+            case 1:
+                handleProfileOptions();
+                break;
+            case 2:
+                handleProductOptions();
+                break;
+            case 3:
+                LOGGER.log(Level.INFO, "Order \n");
+                inst.setemail(cus.getemail2());
+                int flag7 = 1;
+                while (flag7 == 1) {
+                    inst.printorder();
+                    LOGGER.log(Level.INFO, "1. Confirm Order \n");
+                    LOGGER.log(Level.INFO, back);
                     input3 = new Scanner(System.in);
                     int number9 = Integer.parseInt(input3.nextLine());
 
                     switch (number9) {
                         case 1:
-                            pro.addOrder(number6, number8);
+                            inst.checkinst();
+                            flag7 = 0;
                             break;
                         case 2:
+                            flag7 = 0;
                             break;
                         default:
                             break;
                     }
-                    break;
-                case 2:
-                    flag6 = 0;
-                    break;
-                default:
-                    break;
-            }
+                }
+                break;
+            case 4:
+                prof.setemail(cus.getemail2());
+                prof.showhistory();
+                break;
+            case 5:
+                flag4 = 0;
+                break;
+            default:
+                break;
         }
     }
+}
 
-    private static void handleExteriorMenu() {
-        // Similar handling for Exterior menu
+private static void displayCustomerOptions() {
+    LOGGER.log(Level.INFO, "1. Profile \n");
+    LOGGER.log(Level.INFO, "2. Products \n");
+    LOGGER.log(Level.INFO, "3. Make Order \n");
+    LOGGER.log(Level.INFO, "4. History \n");
+    LOGGER.log(Level.INFO, "5. Sign Out \n");
+}
+
+private static void handleProfileOptions() {
+    LOGGER.log(Level.INFO, "\n\n If you want to edit your information choose its number :\n");
+
+    input3 = new Scanner(System.in);
+    int flag11 = 1;
+
+    while (flag11 == 1) {
+        prof.getnamee();
+        int number11 = Integer.parseInt(input3.nextLine());
+
+        switch (number11) {
+            case 1:
+                LOGGER.log(Level.INFO, "Write the new Name :\n");
+                input3 = new Scanner(System.in);
+                String name = input3.nextLine();
+                prof.changename(name);
+                LOGGER.log(Level.INFO, "Success\n");
+                break;
+            case 2:
+                LOGGER.log(Level.INFO, "Write the current Password :\n");
+                input3 = new Scanner(System.in);
+                int pass = Integer.parseInt(input3.nextLine());
+                prof.checkpass(pass);
+                LOGGER.log(Level.INFO, "Write the new Password :\n");
+                input3 = new Scanner(System.in);
+                int passnew = Integer.parseInt(input3.nextLine());
+                prof.changepassward(passnew);
+                break;
+            case 3:
+                LOGGER.log(Level.INFO, "You can't edit your email.\n");
+                break;
+            case 4:
+                LOGGER.log(Level.INFO, "Write the new Address :\n");
+                input3 = new Scanner(System.in);
+                String add = input3.nextLine();
+                prof.changeaddress(add);
+                break;
+            case 5:
+                flag11 = 0;
+                break;
+            default:
+                break;
+        }
     }
+}
 
-    private static void handleElectronicsMenu() {
-        // Similar handling for Electronics menu
+private static void handleProductOptions() {
+    pro.setproductf(1);
+    input3 = new Scanner(System.in);
+    int flag5 = 1;
+
+    while (flag5 == 1) {
+        LOGGER.log(Level.INFO, "1. Interior \n");
+        LOGGER.log(Level.INFO, "2. Exterior \n");
+        LOGGER.log(Level.INFO, "3. Electronics \n");
+        LOGGER.log(Level.INFO, "4. Search \n");
+        LOGGER.log(Level.INFO, "5. Back \n");
+        int number5 = Integer.parseInt(input3.nextLine());
+
+        switch (number5) {
+            case 1:
+                handleInteriorProduct();
+                break;
+            case 2:
+                handleExteriorProduct();
+                break;
+            case 3:
+                handleElectronicProduct();
+                break;
+            case 4:
+                handleSearchProduct();
+                break;
+            case 5:
+                flag5 = 0;
+                break;
+            default:
+                break;
+        }
     }
+}
 
-    private static void handleSearchMenu() {
-        LOGGER.log(Level.INFO, "Please enter the name of the product you want to search for:");
-        Scanner input3 = new Scanner(System.in);
-        String name = input3.nextLine();
-        int number6 = pro.search(name);
-        int flag6 = 1;
+private static void handleInteriorProduct() {
+    input3 = new Scanner(System.in);
+    int flag6 = 1;
 
-        while (flag6 == 1) {
-            LOGGER.log(Level.INFO, "1. Add to Order \n");
-            LOGGER.log(Level.INFO, "2. Back \n");
-            input3 = new Scanner(System.in);
-            int number7 = Integer.parseInt(input3.nextLine());
+    while (flag6 == 1) {
+        pro.printint();
+        int number6 = Integer.parseInt(input3.nextLine());
+        pro.printdetails(number6);
+        LOGGER.log(Level.INFO, addtoorder);
+        LOGGER.log(Level.INFO, back);
+        input3 = new Scanner(System.in);
+        int number7 = Integer.parseInt(input3.nextLine());
 
-            switch (number7) {
-                case 1:
-                    LOGGER.log(Level.INFO, "Enter The Quantity: \n");
-                    input3 = new Scanner(System.in);
+        switch (number7) {
+            case 1:
+                LOGGER.log(Level.INFO, "Enter The Quantity: \n");
+                input3 = new Scanner(System.in);
+                int number8 = Integer.parseInt(input3.nextLine());
+                LOGGER.log(Level.INFO, add);
+                LOGGER.log(Level.INFO, back);
+                input3 = new Scanner(System.in);
+                int number9 = Integer.parseInt(input3.nextLine());
+
+                switch (number9) {
+                    case 1:
+                        pro.addorder(number6, number8);
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 2:
+                flag6 = 0;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+// Similar methods for handleExteriorProduct, handleElectronicProduct, handleSearchProduct
+
+private static void handleInstallerLoggedIn() {
+    input3 = new Scanner(System.in);
+    int flag4 = 1;
+
+    while (flag4 == 1) {
+        displayInstallerOptions();
+        int number4 = Integer.parseInt(input3.nextLine());
+
+        switch (number4) {
+            case 1:
+                LOGGER.log(Level.INFO, "View installation requests \n");
+                inst.showinstall();
+                break;
+            case 2:
+                LOGGER.log(Level.INFO, "schedule appointments \n");
+                inst.printdate();
+                input3 = new Scanner(System.in);
+                int flag9 = 1;
+
+                while (flag9 == 1) {
+                    LOGGER.log(Level.INFO, "1. Add Date \n");
+                    LOGGER.log(Level.INFO, "2. Remove Date \n");
+                    LOGGER.log(Level.INFO, "3. Back \n");
                     int number8 = Integer.parseInt(input3.nextLine());
-                    LOGGER.log(Level.INFO, "1. Add \n");
-                    LOGGER.log(Level.INFO, "2. Back \n");
-                    input3 = new Scanner(System.in);
-                    int number9 = Integer.parseInt(input3.nextLine());
 
-                    switch (number9) {
+                    switch (number8) {
                         case 1:
-                            pro.addOrder(number6, number8);
+                            LOGGER.log(Level.INFO, "/nEnter the Date :/n");
+                            input = new Scanner(System.in);
+                            String newDate = input.nextLine();
+                            inst.AddDate(newDate);
                             break;
                         case 2:
+                            inst.RemoveDate();
+                            break;
+                        case 3:
+                            flag9 = 0;
                             break;
                         default:
                             break;
                     }
-                    break;
-                case 2:
-                    flag6 = 0;
-                    break;
-                default:
-                    break;
-            }
+                }
+                break;
+            case 3:
+                flag4 = 0;
+                break;
+            default:
+                break;
         }
     }
+}
 
-    private static void handleOrderMenu() {
-        int flag7 = 1;
-
-        while (flag7 == 1) {
-            inst.printOrder();
-            LOGGER.log(Level.INFO, "1. Confirm Order \n");
-            LOGGER.log(Level.INFO, "2. Back \n");
-            Scanner input3 = new Scanner(System.in);
-            int number9 = Integer.parseInt(input3.nextLine());
-
-            switch (number9) {
-                case 1:
-                    inst.checkInstallation();
-                    flag7 = 0;
-                    break;
-                case 2:
-                    flag7 = 0;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
-    private static void installerMenu() {
-        Scanner input3 = new Scanner(System.in);
-        int flag4 = 1;
-
-        while (flag4 == 1) {
-            LOGGER.log(Level.INFO, "1. View installation requests \n");
-            LOGGER.log(Level.INFO, "2. schedule appointments \n");
-            LOGGER.log(Level.INFO, "3. Sign Out \n");
-            int number4 = Integer.parseInt(input3.nextLine());
-
-            switch (number4) {
-                case 1:
-                    inst.showInstall();
-                    break;
-                case 2:
-                    LOGGER.log(Level.INFO, "schedule appointments \n");
-                    inst.printDate();
-                    input3 = new Scanner(System.in);
-                    int flag9 = 1;
-
-                    while (flag9 == 1) {
-                        LOGGER.log(Level.INFO, "1. Add Date \n");
-                        LOGGER.log(Level.INFO, "2. Remove Date \n");
-                        LOGGER.log(Level.INFO, "3. Back \n");
-                        int number8 = Integer.parseInt(input3.nextLine());
-
-                        switch (number8) {
-                            case 1:
-                                LOGGER.log(Level.INFO, "Enter the Date :\n");
-                                Scanner input = new Scanner(System.in);
-                                String newDate = input.nextLine();
-                                inst.addDate(newDate);
-                                break;
-                            case 2:
-                                inst.removeDate();
-                                break;
-                            case 3:
-                                flag9 = 0;
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                    break;
-                case 3:
-                    flag4 = 0;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+private static void displayInstallerOptions() {
+    LOGGER.log(Level.INFO, "1. View installation requests \n");
+    LOGGER.log(Level.INFO, "2. Schedule appointments \n");
+    LOGGER.log(Level.INFO, "3. Sign Out \n");
 }
