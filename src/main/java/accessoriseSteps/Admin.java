@@ -43,7 +43,7 @@ public class Admin {
 	installation inst;
 	public List<SignUpCustomer> mylist = c.getMylist();
 	
-	public void setoptionf(int i) {
+	public static void setoptionf(int i) {
 		optionf=i;
 		
 		
