@@ -11,7 +11,7 @@ public class Admin {
 	    private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
 
 	private static int optionf=0;
-	private static int addf=0;
+	
 	private static int editf=0;
 	private static int safetyf=0;
 	private static int deletef=0;
@@ -87,7 +87,7 @@ public class Admin {
 	    
 	}
 	public void setaddf(int i) {
-		this.addf=i;
+		int addf=i;
 	}
 	
 	
@@ -215,8 +215,8 @@ public class Admin {
 			if(option==1)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new name interior product:");
-			     String name = input3.nextLine();
-			     editname(number,name);
+			     String names = input3.nextLine();
+			     editname(number,names);
 			     showinterior();
 			}
 			
@@ -230,29 +230,29 @@ public class Admin {
 			if(option==3)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new image interior product:");
-			     String image = input3.nextLine();
-			     editimage(number,image);
+			     String images = input3.nextLine();
+			     editimage(number,images);
 			     showinterior();
 			}
 			if(option==4)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new price interior product:");
-				int price = Integer.parseInt(input3.nextLine());
-			     editprice(number,price);
+				int prices = Integer.parseInt(input3.nextLine());
+			     editprice(number,prices);
 			     showinterior();
 			}
 			if(option==5)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new install interior product:");
-				 String install = input3.nextLine();
-			     editinstall(number,install);
+				 String installs = input3.nextLine();
+			     editinstall(number,installs);
 			     showinterior();
 			}
 			if(option==6)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new quantity interior product:");
-				int quantity = Integer.parseInt(input3.nextLine());
-			     editquantity(number,quantity);
+				int quantitys = Integer.parseInt(input3.nextLine());
+			     editquantity(number,quantitys);
 			     showinterior();
 			}
 			
@@ -276,44 +276,44 @@ public class Admin {
 			if(option==1)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new name exterior product:");
-			     String name = input3.nextLine();
-			     editname1(number,name);
+			     String namesss = input3.nextLine();
+			     editname1(number,namesss);
 			     showExterior();
 			}
 			
 			if(option==2)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new description exterior product:");
-			     String desc = input3.nextLine();
-			     editdescription1(number,desc);
+			     String descsss = input3.nextLine();
+			     editdescription1(number,descsss);
 			     showExterior();
 			}
 			if(option==3)
 			{
 			LOGGER.log(Level.INFO,"Please enter the new image exterior product:");
-			     String image = input3.nextLine();
-			     editimage1(number,image);
+			     String imagesss = input3.nextLine();
+			     editimage1(number,imagesss);
 			     showExterior();
 			}
 			if(option==4)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new price exterior product:");
-				int price = Integer.parseInt(input3.nextLine());
-			     editprice1(number,price);
+				int pricesss = Integer.parseInt(input3.nextLine());
+			     editprice1(number,pricesss);
 			     showExterior();
 			}
 			if(option==5)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new install exterior product:");
-				 String install = input3.nextLine();
-			     editinstall1(number,install);
+				 String installsss = input3.nextLine();
+			     editinstall1(number,installsss);
 			     showExterior();
 			}
 			if(option==6)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new quantity exterior product:");
-				int quantity = Integer.parseInt(input3.nextLine());
-			     editquantity1(number,quantity);
+				int quantitysss = Integer.parseInt(input3.nextLine());
+			     editquantity1(number,quantitysss);
 			     showExterior();
 			}
 			
@@ -336,44 +336,44 @@ public class Admin {
 			if(option==1)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new name electronic product:");
-			     String name = input3.nextLine();
-			     editname2(number,name);
+			     String namess = input3.nextLine();
+			     editname2(number,namess);
 			     showelec();
 			}
 			
 			if(option==2)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new description electronic product:");
-			     String desc = input3.nextLine();
-			     editdescription2(number,desc);
+			     String descss = input3.nextLine();
+			     editdescription2(number,descss);
 			     showelec();
 			}
 			if(option==3)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new image electronic product:");
-			     String image = input3.nextLine();
-			     editimage2(number,image);
+			     String imagess = input3.nextLine();
+			     editimage2(number,imagess);
 			     showelec();
 			}
 			if(option==4)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new price electronic product:");
-				int price = Integer.parseInt(input3.nextLine());
-			     editprice2(number,price);
+				int pricess = Integer.parseInt(input3.nextLine());
+			     editprice2(number,pricess);
 			     showelec();
 			}
 			if(option==5)
 			{
 				LOGGER.log(Level.INFO,"Please enter the new install electronic product:");
-				 String install = input3.nextLine();
-			     editinstall2(number,install);
+				 String installss = input3.nextLine();
+			     editinstall2(number,installss);
 			     showelec();
 			}
 			if(option==6)
 			{
 			LOGGER.log(Level.INFO,"Please enter the new quantity electronic product:");
-				int quantity = Integer.parseInt(input3.nextLine());
-			     editquantity2(number,quantity);
+				int quantityss = Integer.parseInt(input3.nextLine());
+			     editquantity2(number,quantityss);
 			     showelec();
 			}
 			
