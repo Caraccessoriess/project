@@ -534,6 +534,7 @@ public class MainApp
 					}
 					break;
 				}
+				break;
 			}
 			default:
 			}
