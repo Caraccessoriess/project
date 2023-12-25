@@ -16,6 +16,7 @@ public class installation {
 	private String model="";
 	private String address="";
 	private String phone="";
+	private int flag=0;
 	
 	
 	ProfileCustomer profc;
@@ -135,7 +136,7 @@ public  String getmodel() {
 		System.out.println("\n Total Price = " +totalprice);
 	}
 	public void checkinst() {
-    int flag = 0;
+     flag = 0;
 
     checkSoldOutProducts();
 
