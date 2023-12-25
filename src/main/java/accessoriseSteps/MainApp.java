@@ -21,6 +21,8 @@ public class MainApp
 	private static Scanner input1;
 	private static Scanner input2;
 	private static Scanner input3;
+	private static String addtoorder="1. Add to Order \n";
+	private static Strind back="2. Back \n";
 	static int fad = 0;
 	static int fcs = 0;
 	static int fin = 0;
@@ -310,6 +312,7 @@ public class MainApp
 											switch (number9) {
 											case 1: {
 												pro.addorder(number6, number8);
+												break;
 											}
 											case 2: {
 												break;
@@ -335,13 +338,13 @@ public class MainApp
 										pro.printext();
 										int number6 = Integer.parseInt(input3.nextLine());
 										pro.printdetailsext(number6);
-										LOGGER.log(Level.INFO,"1. Add to Order \n");
-										LOGGER.log(Level.INFO,"2. Back \n");
+										LOGGER.log(Level.INFO,addtoorder);
+										LOGGER.log(Level.INFO,back);
 										input3 = new Scanner(System.in);
 										int number7 = Integer.parseInt(input3.nextLine());
 										switch (number7) {
 										case 1: {
-
+                                                                                  break;
 										}
 										case 2: {
 											flag6 = 0;
@@ -365,14 +368,14 @@ public class MainApp
 										pro.printelec();
 										int number8 = Integer.parseInt(input3.nextLine());
 										pro.printelecdetails(number8);
-										LOGGER.log(Level.INFO,"1. Add to Order \n");
-										LOGGER.log(Level.INFO,"2. Back \n");
+										LOGGER.log(Level.INFO,addtoorder);
+										LOGGER.log(Level.INFO,back);
 										input3 = new Scanner(System.in);
 										int number9 = Integer.parseInt(input3.nextLine());
 
 										switch (number9) {
 										case 1: {
-
+                                                                                break;
 										}
 										case 2: {
 											flag7 = 0;
@@ -394,8 +397,8 @@ public class MainApp
 								    int number6=pro.search(name);
 									int flag6 = 1;
 									while (flag6 == 1) {
-										LOGGER.log(Level.INFO,"1. Add to Order \n");
-										LOGGER.log(Level.INFO,"2. Back \n");
+										LOGGER.log(Level.INFO,addtoorder);
+										LOGGER.log(Level.INFO,back);
 										input3 = new Scanner(System.in);
 										int number7 = Integer.parseInt(input3.nextLine());
 										switch (number7) {
@@ -410,6 +413,7 @@ public class MainApp
 											switch (number9) {
 											case 1: {
 												pro.addorder(number6, number8);
+												break;
 											}
 											case 2: {
 												break;
@@ -569,6 +573,7 @@ public class MainApp
 				break;
 			}
 			default:
+					break;
 			}
 		}
 	}
