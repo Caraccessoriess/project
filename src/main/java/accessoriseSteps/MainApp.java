@@ -74,6 +74,8 @@ public class MainApp
 						flag2 = 0;
 						break;
 					}
+						default:
+							break;
 					}
 				}
 				break;
@@ -132,6 +134,8 @@ public class MainApp
 										flag2 = 0;
 										break;
 									}
+										default:
+											break;
 									}
 								}
 								flag3=0;
@@ -142,6 +146,8 @@ public class MainApp
 							flag3 = 0;
 							break;
 						}
+							default:
+								break;
 
 						}
 						if(n!=0)
@@ -190,6 +196,8 @@ public class MainApp
 							flag4 = 0;
 							break;
 						}
+							default:
+								break;
 
 						}
 
@@ -260,6 +268,8 @@ public class MainApp
 									flag11=0;
 									break;
 								}
+									default:
+										break;
 								}
 							}
 							break;
@@ -304,12 +314,16 @@ public class MainApp
 											case 2: {
 												break;
 											}
+												default:
+													break;
 											}
 										}
 										case 2: {
 											flag6 = 0;
 											break;
 										}
+											default:
+												break;
 										}
 									}
 									break;
@@ -333,6 +347,8 @@ public class MainApp
 											flag6 = 0;
 											break;
 										}
+											default:
+												break;
 										}
 
 									}
@@ -362,6 +378,8 @@ public class MainApp
 											flag7 = 0;
 											break;
 										}
+											default:
+												break;
 										}
 
 									}
@@ -396,6 +414,8 @@ public class MainApp
 											case 2: {
 												break;
 											}
+												default:
+													break;
 
 											}
 
@@ -404,6 +424,8 @@ public class MainApp
 											flag6 = 0;
 											break;
 										}
+											default:
+												break;
 										}
 
 									}
@@ -418,6 +440,8 @@ public class MainApp
 									flag5 = 0;
 									break;
 								}
+									default:
+										break;
 
 								}
 							}
@@ -448,6 +472,8 @@ public class MainApp
 									flag7 = 0;
 									break;
 								}
+									default:
+										break;
 								}
 
 							}
@@ -466,6 +492,8 @@ public class MainApp
 							flag4 = 0;
 							break;
 						}
+							default:
+								break;
 
 						}
 
@@ -519,6 +547,8 @@ public class MainApp
 									flag9=0;
 									break;
 								}
+									default:
+										break;
 								
 								}
 							
@@ -530,6 +560,8 @@ public class MainApp
 							flag4 = 0;
 							break;
 						}
+							default:
+								break;
 						}
 					}
 					break;
