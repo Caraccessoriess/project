@@ -129,7 +129,7 @@ public class Admin {
 		}
 	}
 	
-	private static void interior()
+	private  void interior()
 	{
 		showinterior();
 		Scanner input3 = new Scanner(System.in);
@@ -150,7 +150,7 @@ public class Admin {
 
 	}
 	
-	private static void Exterior()
+	private void Exterior()
 	{
 		showExterior();
 		Scanner input3 = new Scanner(System.in);
@@ -171,7 +171,7 @@ public class Admin {
 
 	}
 	
-	private static void Electronic()
+	private  void Electronic()
 	{
 		showelec();
 		Scanner input3 = new Scanner(System.in);
@@ -194,7 +194,7 @@ public class Admin {
 	
 	
 	
-	private static void editinterior() 
+	private void editinterior() 
 	{
 		 Scanner input3 = new Scanner(System.in);
 			LOGGER.log(Level.INFO,editp);
@@ -255,7 +255,7 @@ public class Admin {
 
 	}
 	
-	private static void editexterior() 
+	private void editexterior() 
 	{
 		 Scanner input3 = new Scanner(System.in);
 			LOGGER.log(Level.INFO,editp);
@@ -315,7 +315,7 @@ public class Admin {
 			
 
 	}
-	private static void editelect() 
+	private void editelect() 
 	{
 		 Scanner input3 = new Scanner(System.in);
 			LOGGER.log(Level.INFO,editp);
@@ -376,22 +376,22 @@ public class Admin {
 
 	}
 	
-	private static void editquantity1(int number, int quantity) {
+	private void editquantity1(int number, int quantity) {
 		exterior.get(number-1).setavailability(quantity);
 		
 	}
-	private static void editinstall1(int number, String install) {
+	private void editinstall1(int number, String install) {
 		
 		exterior.get(number-1).setinstall(install);
 	}
-	private static void editprice1(int number, int price) {
+	private void editprice1(int number, int price) {
 		exterior.get(number-1).setprices(price);
 		
 	}
-	private static void editimage1(int index, String image) {
+	private void editimage1(int index, String image) {
 		exterior.get(index-1).setimage(image);
 	}
-	private static void editdescription1(int index, String desc) {
+	private void editdescription1(int index, String desc) {
 		
 		exterior.get(index-1).setdescriptions(desc);
 	}
@@ -400,22 +400,22 @@ public class Admin {
 		exterior.get(index-1).setname(name);
 	}
 	
-	private static void editquantity2(int number, int quantity) {
+	private void editquantity2(int number, int quantity) {
 		elect.get(number-1).setavailability(quantity);
 		
 	}
-	private static void editinstall2(int number, String install) {
+	private void editinstall2(int number, String install) {
 		
 		elect.get(number-1).setinstall(install);
 	}
-	private static void editprice2(int number, int price) {
+	private void editprice2(int number, int price) {
 		elect.get(number-1).setprices(price);
 		
 	}
-	private static void editimage2(int index, String image) {
+	private void editimage2(int index, String image) {
 		elect.get(index-1).setimage(image);
 	}
-	private static void editdescription2(int index, String desc) {
+	private void editdescription2(int index, String desc) {
 		
 		elect.get(index-1).setdescriptions(desc);
 	}
@@ -424,22 +424,22 @@ public class Admin {
 		elect.get(index-1).setname(name);
 	}
 	
-	private static void editquantity(int number, int quantity) {
+	private void editquantity(int number, int quantity) {
 		interior.get(number-1).setavailability(quantity);
 		
 	}
-	private static void editinstall(int number, String install) {
+	private void editinstall(int number, String install) {
 		
 		interior.get(number-1).setinstall(install);
 	}
-	private static void editprice(int number, int price) {
+	private void editprice(int number, int price) {
 		interior.get(number-1).setprices(price);
 		
 	}
-	private static void editimage(int index, String image) {
+	private void editimage(int index, String image) {
 		interior.get(index-1).setimage(image);
 	}
-	private static void editdescription(int index, String desc) {
+	private void editdescription(int index, String desc) {
 		
 		interior.get(index-1).setdescriptions(desc);
 	}
@@ -447,7 +447,7 @@ public class Admin {
 	{
 		interior.get(index-1).setname(name);
 	}
-	private static void addinterior() 
+	private void addinterior() 
 	{
 		LOGGER.log(Level.INFO,"Please enter the new name interior product:");
 		 Scanner input3 = new Scanner(System.in);
@@ -472,7 +472,7 @@ public class Admin {
 	     showinterior();
 	}
 	
-	private static void addexterior() 
+	private void addexterior() 
 	{
 		 LOGGER.log(Level.INFO,"Please enter the new name exterior product:");
 		 Scanner input3 = new Scanner(System.in);
@@ -498,7 +498,7 @@ public class Admin {
 	}
 	
 	
-	private static void addelect() 
+	private void addelect() 
 	{
 		LOGGER.log(Level.INFO,"Please enter the new name electronic product:");
 		 Scanner input3 = new Scanner(System.in);
@@ -620,7 +620,7 @@ public class Admin {
 		
 		
 	}
-	private static void add()
+	private void add()
 	{
 		 LOGGER.log(Level.INFO,"Please enter the new category:");
 		 Scanner input3 = new Scanner(System.in);
