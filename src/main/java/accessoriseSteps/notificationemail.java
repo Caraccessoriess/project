@@ -56,7 +56,7 @@ public class notificationemail {
             
 
         } catch (MessagingException e) {
-            e.printStackTrace();
+                logger.error("An error occurred: " + e.getMessage(), e);
         }
 }
 	public void setcustf(int i) {
