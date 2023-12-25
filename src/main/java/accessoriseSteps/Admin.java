@@ -44,7 +44,7 @@ public class Admin {
 	public List<SignUpCustomer> mylist = c.getMylist();
 	
 	public void setoptionf(int i) {
-		this.optionf=i;
+		optionf=i;
 		
 		
 	}
