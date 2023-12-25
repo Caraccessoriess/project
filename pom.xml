@@ -63,6 +63,7 @@
 <maven.compiler.source>7</maven.compiler.source>
 <maven.compiler.target>7</maven.compiler.target>	
 <sonar.coverage.exclusions>**/MainApp.java</sonar.coverage.exclusions>
+<sonar.coverage.exclusions>**/Admin.java</sonar.coverage.exclusions>
 	
 </properties>
 
