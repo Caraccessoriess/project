@@ -22,7 +22,7 @@ public class MainApp
 	private static Scanner input2;
 	private static Scanner input3;
 	private static String addtoorder="1. Add to Order \n";
-	private static Strind back="2. Back \n";
+	private static String back="2. Back \n";
 	static int fad = 0;
 	static int fcs = 0;
 	static int fin = 0;
