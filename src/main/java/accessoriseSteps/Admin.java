@@ -696,7 +696,7 @@ public String checknameelectronic() {
 		    String passString = Integer.toString(pass);
 				if (passString.length() == 4)
 				{
-					LOGGER.log(Level.INFO,"Name:"+mylist.get(i).getname() +"  , Email: " + mylist.get(i).getemail() + "  , Address: " + mylist.get(i).getaddress());
+					LOGGER.log(Level.INFO,"Name:{}",mylist.get(i).getname() +"  , Email:{} " , mylist.get(i).getemail() + "  , Address:{} " , mylist.get(i).getaddress());
 				}
 		}	
 	}
