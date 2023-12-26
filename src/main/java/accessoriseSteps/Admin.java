@@ -84,7 +84,7 @@ public class Admin {
 	    
 	}
 	public void setaddf(int i) {
-		
+		LOGGER.log(Level.INFO,"done");
 	}
 	
 	
@@ -631,10 +631,10 @@ public class Admin {
 	}
 	public void seteditf(int i) {
 		
-		
+		LOGGER.log(Level.INFO,"done");
 	}
 	public void setsafetyf(int i) {
-		
+		LOGGER.log(Level.INFO,"done");
 		
 	}
 	public void editcatagory(String edit,int n) {
@@ -643,11 +643,11 @@ public class Admin {
 		
 	}
 	public void setdeletef(int i) {
-		
+		LOGGER.log(Level.INFO,"done");
 		
 	}
 	public void setinteriorf(int i) {
-		
+		LOGGER.log(Level.INFO,"done");
 		
 	}
 	public String checkinterior() {
@@ -708,11 +708,11 @@ public String checknameelectronic() {
 	}
 	public void setextf(int i) {
 		
-		
+		LOGGER.log(Level.INFO,"done");
 	}
 	public void setelecf(int i) {
 		
-		
+		LOGGER.log(Level.INFO,"done");
 	}
 
 }
