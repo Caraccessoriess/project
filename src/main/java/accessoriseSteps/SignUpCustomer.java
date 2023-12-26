@@ -165,6 +165,12 @@ public class SignUpCustomer {
 		}
 
 	}
+
+	public int login() {
+		return 1;
+	}
+	public void recordinformation() {
+	}
 	
 	public void authintication2() {
 
