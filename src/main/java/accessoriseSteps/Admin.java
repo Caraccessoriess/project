@@ -33,7 +33,7 @@ public class Admin {
 	
 	
 	private static final List<String> catagory = new ArrayList<String>();
-	private static product p=new product();
+	private product p=new product();
 	private static List <product>interior = p.getinterior();
 	private static List <product>exterior = p.getextrior();
 	private static List <product>elect = p.getelect();
@@ -138,7 +138,7 @@ public class Admin {
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=interior.size())
 		{
-			p.printdetails(number);
+			product.printdetails(number);
 		}
 		if(number==interior.size()+1)//add
 		{
@@ -159,7 +159,7 @@ public class Admin {
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=exterior.size())
 		{
-			p.printdetailsext(number);
+			product.printdetailsext(number);
 		}
 		if(number==exterior.size()+1)//add
 		{
