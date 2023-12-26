@@ -13,7 +13,13 @@ public class productSteps {
 	@Given("user in product page")
 	public void user_in_product_page()
 	{
-		
+		p.setavailability(10);
+		p.setdescriptions("");
+		p.setimage("image");
+		p.setinstall("yes");
+		p.getavailability();
+		p.getdescription();
+		p.getimage();
 		p.setproductf(1);
 	}
 
@@ -21,6 +27,7 @@ public class productSteps {
 	public void user_choose_interior_product() {
 	   p.initproduct();
 	   p.setint(1);
+	   p.printelec();
 	}
 
 	@When("user select rearview mirror")
@@ -28,6 +35,8 @@ public class productSteps {
 	    
 		p.setmirror(3);
 		p.printdetails(3);
+		p.printext();
+		p.printint();
 	}
 
 	@Then("go to rearview mirror page details")
@@ -40,6 +49,8 @@ public class productSteps {
 	public void user_choose_exterior_product() {
 		p.initproduct();
 		p.setext(2);
+		p.checkinstalle();
+		p.checknoinstalle();
 		
 	}
 
