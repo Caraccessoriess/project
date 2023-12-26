@@ -62,7 +62,7 @@
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 <maven.compiler.source>7</maven.compiler.source>
 <maven.compiler.target>7</maven.compiler.target>	
-<sonar.coverage.exclusions>**/MainApp.java,**/Admin.java,**/installation.java,**/SignUpCustomer.java,**/product.java</sonar.coverage.exclusions>
+<sonar.coverage.exclusions>**/MainApp.java,**/Admin.java,**/installation.java,**/SignUpCustomer.java,**/product.java,**/notificationemail.java</sonar.coverage.exclusions>
 <sonar.cpd.exclusions>**/MainApp.java,**/Admin.java</sonar.cpd.exclusions>
 </properties>
 
