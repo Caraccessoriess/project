@@ -34,9 +34,9 @@ public class Admin {
 	
 	private static final List<String> catagory = new ArrayList<String>();
 	private product p=new product();
-	private static List <product>interior = p.getinterior();
-	private static List <product>exterior = p.getextrior();
-	private static List <product>elect = p.getelect();
+	private  List <product>interior = p.getinterior();
+	private  List <product>exterior = p.getextrior();
+	private  List <product>elect = p.getelect();
 	
 	
 	public List<String> getcatg() 
