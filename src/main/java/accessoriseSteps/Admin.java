@@ -560,7 +560,7 @@ public class Admin {
 		for (int i = 0; i < exterior.size(); i++)
 		{
 	    x=i+1;
-		LOGGER.log(Level.INFO,x , ". {0}" , exterior.get(i).getname());
+		LOGGER.log(Level.INFO,x + ". {0}" , exterior.get(i).getname());
 		}
 		x++;
 	   LOGGER.log(Level.INFO,"{0}", x + add);
@@ -576,7 +576,7 @@ public class Admin {
 		for (int i = 0; i < elect.size(); i++)
 		{
 	    x=i+1;
-		LOGGER.log(Level.INFO, x, ". {0}" , elect.get(i).getname());
+		LOGGER.log(Level.INFO, x+". {0}" , elect.get(i).getname());
 		}
 		x++;
 	    LOGGER.log(Level.INFO,"{0}", x + add);
