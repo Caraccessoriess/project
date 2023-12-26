@@ -151,7 +151,7 @@ public class SignUpCustomer {
 
 	}
 
-	public static void authintication() {
+	public void authintication() {
  
 		
 		for (int i = 0; i < mylist.size(); i++) {
