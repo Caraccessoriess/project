@@ -45,7 +45,7 @@ public class Admin {
 	}
 	
 	SignUpCustomer c;
-	installation inst;
+	private installation inst=new installation();
 	public List<SignUpCustomer> mylist = c.getMylist();
 	
 	public static void setoptionf(int i) {
@@ -84,7 +84,7 @@ public class Admin {
 	    
 	}
 	public void setaddf(int i) {
-		int addf=i;
+		
 	}
 	
 	
@@ -630,12 +630,12 @@ public class Admin {
 	     showcatagory();
 	}
 	public void seteditf(int i) {
-		int editf=i;
+		
 		
 	}
 	public void setsafetyf(int i) {
 		
-		int safetyf=i;
+		
 	}
 	public void editcatagory(String edit,int n) {
 		
@@ -643,12 +643,12 @@ public class Admin {
 		
 	}
 	public void setdeletef(int i) {
-		int deletef=i;
+		
 		
 	}
 	public void setinteriorf(int i) {
 		
-		int interiorf=i;
+		
 	}
 	public String checkinterior() {
 		
@@ -666,11 +666,11 @@ public String checkelec() {
 	return elect.get(elect.size()-1).getname();
 }
 	public void setproduct(int i) {
-		int productf=i;
+		
 		
 	}
 	public void setinformation(int i) {
-	int informationf=i;
+	
 		
 	}
 	public String checknameinterior() {
@@ -704,14 +704,14 @@ public String checknameelectronic() {
 	}
 	public void showinstallation() {
 		
-		inst.printdate();
+		installation.printdate();
 	}
 	public void setextf(int i) {
-		int extf=i;
+		
 		
 	}
 	public void setelecf(int i) {
-		int elecf=i;
+		
 		
 	}
 
