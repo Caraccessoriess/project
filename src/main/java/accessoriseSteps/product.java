@@ -273,11 +273,7 @@ public class product {
 		return productf;
 	}
 
-	public void chooseint()
-	{
-		
-		
-	}
+	
 	
 	public void addorder(int n,int w)
 	{
