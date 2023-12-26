@@ -84,7 +84,7 @@ public class Admin {
 	    
 	}
 	public void setaddf(int i) {
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 	}
 	
 	
@@ -631,10 +631,10 @@ public class Admin {
 	}
 	public void seteditf(int i) {
 		
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 	}
 	public void setsafetyf(int i) {
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 		
 	}
 	public void editcatagory(String edit,int n) {
@@ -643,11 +643,11 @@ public class Admin {
 		
 	}
 	public void setdeletef(int i) {
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 		
 	}
 	public void setinteriorf(int i) {
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 		
 	}
 	public String checkinterior() {
@@ -667,11 +667,11 @@ public String checkelec() {
 }
 	public void setproduct(int i) {
 		
-		
+		LOGGER.log(Level.INFO,"done{0}",i);
 	}
 	public void setinformation(int i) {
 	
-		
+		LOGGER.log(Level.INFO,"done{0}",i);
 	}
 	public String checknameinterior() {
 		
@@ -708,11 +708,11 @@ public String checknameelectronic() {
 	}
 	public void setextf(int i) {
 		
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 	}
 	public void setelecf(int i) {
 		
-		LOGGER.log(Level.INFO,"done");
+		LOGGER.log(Level.INFO,"done{0}",i);
 	}
 
 }
