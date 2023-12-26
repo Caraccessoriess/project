@@ -33,10 +33,10 @@ public class Admin {
 	
 	
 	private static final List<String> catagory = new ArrayList<String>();
-	product p=new product();
-	List <product>interior = p.getinterior();
-	List <product>exterior = p.getextrior();
-	List <product>elect = p.getelect();
+	private static product p=new product();
+	private static List <product>interior = p.getinterior();
+	private static List <product>exterior = p.getextrior();
+	private static List <product>elect = p.getelect();
 	
 	
 	public List<String> getcatg() 
