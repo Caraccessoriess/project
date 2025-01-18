@@ -3,8 +3,12 @@ package accessoriseSteps;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class product {
 	//
+	
+	private static final Logger LOGGER = Logger.getLogger(product.class.getName());
 	private String name;
 	private String descriptions;
 	private String image;
@@ -180,37 +184,42 @@ public class product {
 	}
 	
 	
-	public static void printint()
+	public static int printint()
 	{
+		int x=0;
 		for (int i = 0; i < intprod.size(); i++)
 		{
-			int x=i+1;
+			 x=i+1;
 		System.out.println( x + ". " + intprod.get(i).name);
 		}
-		
+		System.out.println( x+1 + ". " + "Back");
+		return intprod.size();
 	}
 	
-	public static void printext()
+	public static int printext()
 	{
+		int x=0;
 		for (int i = 0; i < extprod.size(); i++)
 		{
-			int x=i+1;
+			x=i+1;
 		System.out.println( x + ". " + extprod.get(i).name);
 		}
+		System.out.println( x+1 + ". " + "Back");
+		return extprod.size();
 		
 	}
 
 	
 	public static void printdetails(int n)
 	{
-		System.out.println("Name:" + intprod.get(n-1).name);
-		System.out.println("Description:" + intprod.get(n-1).descriptions);
-		System.out.println("Image:" + intprod.get(n-1).image);
-		System.out.println("Price:" + intprod.get(n-1).prices + "$");
+		LOGGER.log(Level.INFO,"Name:" + intprod.get(n-1).name);
+		LOGGER.log(Level.INFO,"Description:" + intprod.get(n-1).descriptions);
+		LOGGER.log(Level.INFO,"Image:" + intprod.get(n-1).image);
+		LOGGER.log(Level.INFO,"Price:" + intprod.get(n-1).prices + "$");
 		if(intprod.get(n-1).availability > 0)
-			System.out.println("Available");
+			LOGGER.log(Level.INFO,"Available");
 		else
-			System.out.println("Sold Out");	
+			LOGGER.log(Level.INFO,"Sold Out");	
 		
 		doneshow=1;
 		
@@ -218,14 +227,14 @@ public class product {
 	
 	public static void printdetailsext(int n)
 	{
-		System.out.println("Name:" + extprod.get(n-1).name);
-		System.out.println("Description:" + extprod.get(n-1).descriptions);
-		System.out.println("Image:" + extprod.get(n-1).image);
-		System.out.println("Price:" + extprod.get(n-1).prices + "$");
+		LOGGER.log(Level.INFO,"Name:" + extprod.get(n-1).name);
+		LOGGER.log(Level.INFO,"Description:" + extprod.get(n-1).descriptions);
+		LOGGER.log(Level.INFO,"Image:" + extprod.get(n-1).image);
+		LOGGER.log(Level.INFO,"Price:" + extprod.get(n-1).prices + "$");
 		if(extprod.get(n-1).availability > 0)
-			System.out.println("Available");
+			LOGGER.log(Level.INFO,"Available");
 		else
-			System.out.println("Sold Out");	
+			LOGGER.log(Level.INFO,"Sold Out");	
 		
 		doneshow2=1;
 	}
@@ -240,25 +249,27 @@ public class product {
 		
 	}
 
-	public void printelec() {
-		// TODO Auto-generated method stub
+	public static int printelec() {
+		int x=0;
 		for (int i = 0; i < elecprod.size(); i++)
 		{
-			int x=i+1;
-		System.out.println( x + ". " + elecprod.get(i).name);
+			x=i+1;
+			LOGGER.log(Level.INFO, x + ". " + elecprod.get(i).name);
 		}
+		LOGGER.log(Level.INFO, x+1 + ". " + "Back");
+		return elecprod.size();
 		
 	}
 	public void printelecdetails(int n) {
 		// TODO Auto-generated method stub
-		System.out.println("Name:" + elecprod.get(n-1).name);
-		System.out.println("Description:" + elecprod.get(n-1).descriptions);
-		System.out.println("Image:" + elecprod.get(n-1).image);
-		System.out.println("Price:" + elecprod.get(n-1).prices);
+		LOGGER.log(Level.INFO,"Name:" + elecprod.get(n-1).name);
+		LOGGER.log(Level.INFO,"Description:" + elecprod.get(n-1).descriptions);
+		LOGGER.log(Level.INFO,"Image:" + elecprod.get(n-1).image);
+		LOGGER.log(Level.INFO,"Price:" + elecprod.get(n-1).prices);
 		if(elecprod.get(n-1).availability > 0)
-			System.out.println("Available");
+			LOGGER.log(Level.INFO,"Available");
 		else
-			System.out.println("Sold Out");	
+			LOGGER.log(Level.INFO,"Sold Out");	
 		
 		doneshow3=1;
 		
@@ -284,12 +295,36 @@ public class product {
 		if(intprod.get(n-1).availability > 0)
 		{
 			 order.add(new product(intprod.get(n-1).name,intprod.get(n-1).prices,intprod.get(n-1).installe,w,intprod.get(n-1).availability));
-		     System.out.println("\nSuccefully Add");
+			 LOGGER.log(Level.INFO,"\nSuccefully Add");
 		     
 		}
 		else
-			System.out.println("\n This Product is Sold Out");
+			LOGGER.log(Level.INFO,"\n This Product is Sold Out");
 	}
+	
+	public void addorder1(int n,int w)
+	{
+		if(extprod.get(n-1).availability > 0)
+		{
+			 order.add(new product(extprod.get(n-1).name,extprod.get(n-1).prices,extprod.get(n-1).installe,w,extprod.get(n-1).availability));
+			 LOGGER.log(Level.INFO,"\nSuccefully Add");
+		     
+		}
+		else
+			LOGGER.log(Level.INFO,"\n This Product is Sold Out");
+	}
+	public void addorder2(int n,int w)
+	{
+		if(elecprod.get(n-1).availability > 0)
+		{
+			 order.add(new product(elecprod.get(n-1).name,elecprod.get(n-1).prices,elecprod.get(n-1).installe,w,elecprod.get(n-1).availability));
+			 LOGGER.log(Level.INFO,"\nSuccefully Add");
+		     
+		}
+		else
+			LOGGER.log(Level.INFO,"\n This Product is Sold Out");
+	}
+	
 	
 	public List<product> getorder() 
 	{ 
@@ -363,14 +398,14 @@ public class product {
 		{
 			if(intprod.get(i).name.equals(name2))
 			{
-				System.out.println("Name:" + intprod.get(i).name);
-				System.out.println("Description:" + intprod.get(i).descriptions);
-				System.out.println("Image:" + intprod.get(i).image);
-				System.out.println("Price:" + intprod.get(i).prices + "$");
+				LOGGER.log(Level.INFO,"Name:" + intprod.get(i).name);
+				LOGGER.log(Level.INFO,"Description:" + intprod.get(i).descriptions);
+				LOGGER.log(Level.INFO,"Image:" + intprod.get(i).image);
+				LOGGER.log(Level.INFO,"Price:" + intprod.get(i).prices + "$");
 				if(intprod.get(i).availability > 0)
-					System.out.println("Available");
+					LOGGER.log(Level.INFO,"Available");
 				else
-					System.out.println("Sold Out");
+					LOGGER.log(Level.INFO,"Sold Out");
 				sucesssearchf=1;
 				break;
 			}
@@ -379,11 +414,36 @@ public class product {
 
 		for ( i = 0; i < extprod.size(); i++)
 		{
+			if(extprod.get(i).name.equals(name2))
+			{
+				LOGGER.log(Level.INFO,"Name:" + extprod.get(i).name);
+				LOGGER.log(Level.INFO,"Description:" + extprod.get(i).descriptions);
+				LOGGER.log(Level.INFO,"Image:" + extprod.get(i).image);
+				LOGGER.log(Level.INFO,"Price:" + extprod.get(i).prices + "$");
+				if(extprod.get(i).availability > 0)
+					LOGGER.log(Level.INFO,"Available");
+				else
+					LOGGER.log(Level.INFO,"Sold Out");
+				sucesssearchf=1;
+				break;
+			}
 			
 		}
 		for ( i = 0; i < elecprod.size(); i++)
 		{
-			
+			if(elecprod.get(i).name.equals(name2))
+			{
+				LOGGER.log(Level.INFO,"Name:" + elecprod.get(i).name);
+				LOGGER.log(Level.INFO,"Description:" + elecprod.get(i).descriptions);
+				LOGGER.log(Level.INFO,"Image:" + elecprod.get(i).image);
+				LOGGER.log(Level.INFO,"Price:" + elecprod.get(i).prices + "$");
+				if(elecprod.get(i).availability > 0)
+					LOGGER.log(Level.INFO,"Available");
+				else
+					LOGGER.log(Level.INFO,"Sold Out");
+				sucesssearchf=1;
+				break;
+			}
 		}
 		if(sucesssearchf==0)
 		{

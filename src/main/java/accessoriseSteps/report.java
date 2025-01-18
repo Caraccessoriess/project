@@ -2,8 +2,11 @@ package accessoriseSteps;
 
 import java.util.List;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class report {
 	//
+	private static final Logger LOGGER = Logger.getLogger(report.class.getName());
 	SignUpCustomer c;
 	Admin adm=new Admin();
 	public List<SignUpCustomer> mylist = c.getMylist();
@@ -82,25 +85,25 @@ public class report {
 			Order++;
 		}
 		
-		System.out.println(" ----------------- Car Accessories Application ---------------------");
+		LOGGER.log(Level.INFO," ----------------- Car Accessories Application ---------------------");
 		
-		System.out.println("\nUSERS INFORMATION");
-		System.out.println("- Total number of user in Application =" + countuser);
-		System.out.println("- Total number of Admin in Application =" + countadmin);
-		System.out.println("- Total number of Customer in Application =" + countcustomer);
-		System.out.println("- Total number of installer in Application =" + countinstaller);
+		LOGGER.log(Level.INFO,"\nUSERS INFORMATION");
+		LOGGER.log(Level.INFO,"- Total number of user in Application =" + countuser);
+		LOGGER.log(Level.INFO,"- Total number of Admin in Application =" + countadmin);
+		LOGGER.log(Level.INFO,"- Total number of Customer in Application =" + countcustomer);
+		LOGGER.log(Level.INFO,"- Total number of installer in Application =" + countinstaller);
 		
-		System.out.println("\nPRODUCT");
-		System.out.println("- Total number of Catagories in Application =" + countcatagory);
-		System.out.println("- Total number of Product in Application =" + countproduct);
-		System.out.println("- Total number of Interior Product in Application =" + countent);
-		System.out.println("- Total number of Exterior Product in Application =" + countext);
-		System.out.println("- Total number of Electronic Product in Application =" + countelect);
+		LOGGER.log(Level.INFO,"\nPRODUCT");
+		LOGGER.log(Level.INFO,"- Total number of Catagories in Application =" + countcatagory);
+		LOGGER.log(Level.INFO,"- Total number of Product in Application =" + countproduct);
+		LOGGER.log(Level.INFO,"- Total number of Interior Product in Application =" + countent);
+		LOGGER.log(Level.INFO,"- Total number of Exterior Product in Application =" + countext);
+		LOGGER.log(Level.INFO,"- Total number of Electronic Product in Application =" + countelect);
 		
-		System.out.println("\nORDER");
-		System.out.println("- Total number of Order in Application =" + Order);
+		LOGGER.log(Level.INFO,"\nORDER");
+		LOGGER.log(Level.INFO,"- Total number of Order in Application =" + Order);
 		
-		System.out.println(" -------------------------------------------------------------------");
+		LOGGER.log(Level.INFO," -------------------------------------------------------------------");
 		reportsucess=1;
 	
 		}

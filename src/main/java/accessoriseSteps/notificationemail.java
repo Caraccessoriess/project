@@ -4,9 +4,13 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class notificationemail {
 //
+    private static final Logger LOGGER = Logger.getLogger(notificationemail.class.getName());
+
 	int flagemail=0;
 	int confirmf=0;
 	int fillf=0;
@@ -56,7 +60,8 @@ public class notificationemail {
             
 
         } catch (MessagingException e) {
-            e.printStackTrace();
+        	LOGGER.log(Level.INFO,"An error occurred: " + e.getMessage(), e);
+        	
         }
 }
 	public void setcustf(int i) {

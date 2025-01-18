@@ -11,12 +11,18 @@ import io.cucumber.java.en.When;
 public class profileSteps {
 	SignUpCustomer c ;
 	ProfileCustomer pr=new 	ProfileCustomer();
+	
 	//
 	@Given("user is log in as customer")
 	public void user_is_log_in_as_customer() 
 	{
 		c = new SignUpCustomer("noor omar",1234);
 		c.init();
+		ProfileCustomer pr2=new ProfileCustomer("ali",123,"ali@gmail.com","nablus");
+		ProfileCustomer pr3=new ProfileCustomer("ali@gmail.com",150);
+		pr2.setaddress("ramallah");
+		pr2.setemail("ali@gmail.com");
+		pr2.setpass(540);
 	}
 
 	@When("user in customer page")
@@ -161,8 +167,7 @@ public class profileSteps {
 	@Then("view history for customer")
 	public void view_history_for_customer() 
 	{
-	    
-		  assertTrue(pr.getmenuf()==2);
+	     assertTrue(pr.getmenuf()==2);
 	}
 
 }

@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ProfileCustomer {
 //
+	
+	private static final Logger LOGGER = Logger.getLogger(ProfileCustomer.class.getName());
 	private int pass;
 	private String name;
 	private String email;
@@ -112,11 +117,11 @@ public String getnamee() {
 		 }
 	 }
 	 
-	 System.out.println("1. Name :" + this.name);
-		System.out.println("\n 2. Passward : **** ");
-		System.out.println("\n 3. Email :" + this.email);
-		System.out.println("\n 4. Address :" + this.address);
-		System.out.println("\n 5. Back :");
+	 LOGGER.log(Level.INFO,"1. Name :" + this.name);
+	 LOGGER.log(Level.INFO,"\n 2. Passward : **** ");
+	 LOGGER.log(Level.INFO,"\n 3. Email :" + this.email);
+	 LOGGER.log(Level.INFO,"\n 4. Address :" + this.address);
+	 LOGGER.log(Level.INFO,"\n 5. Back :");
 		
 	return this.name;
 }
@@ -194,12 +199,9 @@ public void showhistory() {
 	  int x=0;
 	for (int i = 0; i <allOrder.size(); i++)
 	 {
-		
-	
 		if(email.equals(allOrder.get(i).getemail())) {
 		x=i+1;
-		System.out.println(x+". "+allOrder.get(i).getemail()+"   "+allOrder.get(i).getstatus()+"   "+ allOrder.get(i).gettotalprice()+" "+allOrder.get(i).getproductNames());
-		
+		LOGGER.log(Level.INFO,x+". "+allOrder.get(i).getemail()+"   "+allOrder.get(i).getstatus()+"   "+ allOrder.get(i).gettotalprice()+" "+allOrder.get(i).getproductNames());
 	 }
 	 }
 	menuf=2;

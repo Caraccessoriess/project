@@ -5,9 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 
+import java.util.logging.Logger;
+
 import accessoriseSteps.SignUpCustomer;
 
 public class SignUpCustomer {
+	
+	private static final Logger LOGGER = Logger.getLogger(SignUpCustomer.class.getName());
 	private int pass;//
 	private String name;
 	private String email;
@@ -106,28 +110,27 @@ public class SignUpCustomer {
 	}
 
 	public void recordinformation() {
-		// TODO Auto-generated method stub
-		System.out.println("enter name =");
+		LOGGER.log(Level.INFO,"enter name =");
 		Scanner input2 = new Scanner(System.in);
 		String name = input2.nextLine();
 
-		System.out.println("\n enter password =");
+		LOGGER.log(Level.INFO,"\n enter password =");
 		input2 = new Scanner(System.in);
 		int pass = input2.nextInt();
 
-		System.out.println("\n enter email =");
+		LOGGER.log(Level.INFO,"\n enter email =");
 		input2 = new Scanner(System.in);
 		String email = input2.next();
 
-		System.out.println("\n enter address =");
+		LOGGER.log(Level.INFO,"\n enter address =");
 		input2 = new Scanner(System.in);
 		String address = input2.next();
 		if (name == " " && email == " " && address == " ") {
-			System.out.println("\n Please fill out all data ! ");
+			LOGGER.log(Level.INFO,"\n Please fill out all data ! ");
 		}
 		for (int i = 0; i < mylist.size(); i++) {
 			if (mylist.get(i).pass == pass) {
-				System.out.println("\n This account already exists, reset the password Please !");
+				LOGGER.log(Level.INFO,"\n This account already exists, reset the password Please !");
 				recordinformation();
 			}
 		}
@@ -143,11 +146,11 @@ public class SignUpCustomer {
 			mylist.add(new SignUpCustomer(name, pass, email, address));
 
 		} else {
-			System.out.println("\n Please Your Password is incorrect , Follow the instructions ! ");
+			LOGGER.log(Level.INFO,"\n Please Your Password is incorrect , Follow the instructions ! ");
 			recordinformation();
 		}
 
-		System.out.println("\n successfull to save information");
+		LOGGER.log(Level.INFO,"\n successfull to save information");
 
 	}
 
@@ -240,26 +243,26 @@ public class SignUpCustomer {
 
 	public int login() {
 		// TODO Auto-generated method stub
-		System.out.println("Enter User Name :\n");
+		LOGGER.log(Level.INFO,"Enter User Name :\n");
 		input1 = new Scanner(System.in);
 		name = input1.nextLine();
 
-		System.out.println("Enter Password :\n");
+		LOGGER.log(Level.INFO,"Enter Password :\n");
 		input1 = new Scanner(System.in);
 		pass = input1.nextInt();
 
 		authintication();
 		if (this.getadminf() == 1) {
-			System.out.println("Successfulyy Login as admin");
+			LOGGER.log(Level.INFO,"Successfulyy Login as admin");
 			return 1;
 		} else if (this.getcustomerf() == 1) {
-			System.out.println("Successfulyy Login as customer");
+			LOGGER.log(Level.INFO,"Successfulyy Login as customer");
 			return 2;
 		} else if (this.getinstallerf() == 1) {
-			System.out.println("Successfulyy Login as installer");
+			LOGGER.log(Level.INFO,"Successfulyy Login as installer");
 			return 3;
 		} else {
-			System.out.println("Cannot Login successfully please try again or sign up with new account");
+			LOGGER.log(Level.INFO,"Cannot Login successfully please try again or sign up with new account");
 			return 0;
 		}
 

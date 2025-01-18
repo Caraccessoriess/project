@@ -20,6 +20,8 @@ public class installationSteps
 	public void choose_to_confirm_order() 
 	{
 	 p.setconf(1);
+	 n.initdate();
+	 n.AddDate("17/12/2023");
 	 p.initproduct();
 	 
 	}
@@ -27,13 +29,15 @@ public class installationSteps
 	@When("needs the product installation")
 	public void needs_the_product_installation()
 	{
+		n.printdate();
+		n.printorder();
 		p.addorder(3, 2);  
 	}
 
 	@Then("show the confirm order form")
 	public void show_the_confirm_order_form() 
 	{
-	p.setdonef(1);
+	  p.setdonef(1);
 	}
 	
 	@Then("show the installation request form")
@@ -51,12 +55,15 @@ public class installationSteps
 	@Given("customer is fill the form")
 	public void customer_is_fill_the_form() 
 	{
+		//n.processOrder();
 		p.setdonef(1);
 	}
 
 	@When("choose to done request")
 	public void choose_to_done_request()
 	{
+		n.installreq();
+		n.showinstall();
 		p.setfillf(1);
 	}
 

@@ -11,7 +11,6 @@ When the customer give name,incorrect passward,email and address
 Then the user registration should be not successful
 
 
-
 Scenario: Successfully login as Admin
 Given valid admin user name and password
 When admin write username and password correct 

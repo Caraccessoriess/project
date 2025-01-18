@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Admin {
 //
+	private static final Logger LOGGER = Logger.getLogger(Admin.class.getName());
 	private static int optionf=0;
+	
 	private static int addf=0;
+	
 	private static int editf=0;
 	private static int safetyf=0;
 	private static int deletef=0;
@@ -56,20 +62,20 @@ public class Admin {
 		for (int i = 0; i < catagory.size(); i++)
 		{
 	    x=i+1;
-		System.out.println( x + ". " + catagory.get(i));
+	    LOGGER.log(Level.INFO, x + ". " + catagory.get(i));
 		}
 		x++;
-	    System.out.println( x + ". Add");
+		LOGGER.log(Level.INFO, x + ". Add");
 	    x++;
-	    System.out.println( x + ". Edit");
+	    LOGGER.log(Level.INFO, x + ". Edit");
 	    x++;
-	    System.out.println( x + ". Delete");
+	    LOGGER.log(Level.INFO, x + ". Delete");
 	    x++;
-	    System.out.println( x + ". Back");
+	    LOGGER.log(Level.INFO, x + ". Back");
 	    
 	}
 	public void setaddf(int i) {
-		this.addf=i;
+		int addf=i;
 	}
 	
 	
@@ -119,11 +125,60 @@ public class Admin {
 	{
 		showinterior();
 		Scanner input3 = new Scanner(System.in);
-		System.out.println("Please choose the number:");
+		LOGGER.log(Level.INFO,"Please choose the number:");
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=interior.size())
 		{
 			p.printdetails(number);
+			LOGGER.log(Level.INFO,"1. Edit");
+			LOGGER.log(Level.INFO,"2. Back");
+			int num = Integer.parseInt(input3.nextLine());
+			if(num==1)
+			{
+				LOGGER.log(Level.INFO,"Please choose number you want to edit:");
+				LOGGER.log(Level.INFO,"1. Name");
+				LOGGER.log(Level.INFO,"2. Description");
+				LOGGER.log(Level.INFO,"3. Image");
+				LOGGER.log(Level.INFO,"4. Price");
+				LOGGER.log(Level.INFO,"5. Quantity");
+				int option = Integer.parseInt(input3.nextLine());
+				if(option==1)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new name:");
+					String name=input3.nextLine();
+					interior.get(number).setname(name);
+				}
+				else if(option==2)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Descriptione:");
+					String Description=input3.nextLine();
+					interior.get(number).setdescriptions(Description);
+				}
+				else if(option==3)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Image:");
+					String Image=input3.nextLine();
+					interior.get(number).setimage(Image);
+				}
+				else if(option==4)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new price:");
+					int price = Integer.parseInt(input3.nextLine());
+					interior.get(number).setprices(price);
+				}
+				else if(option==5)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Quantity:");
+					int Quantity = Integer.parseInt(input3.nextLine());
+					interior.get(number).setquant(Quantity);
+				}
+				
+				
+			}
+			if(num==2)
+			{
+				interior();
+			}	
 		}
 		if(number==interior.size()+1)//add
 		{
@@ -133,18 +188,66 @@ public class Admin {
 		{
 			editinterior();
 		}
-
 	}
 	
 	private void Exterior()
 	{
 		showExterior();
 		Scanner input3 = new Scanner(System.in);
-		System.out.println("Please choose the number:");
+		LOGGER.log(Level.INFO,"Please choose the number:");
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=exterior.size())
 		{
 			p.printdetailsext(number);
+			LOGGER.log(Level.INFO,"1. Edit");
+			LOGGER.log(Level.INFO,"2. Back");
+			int num = Integer.parseInt(input3.nextLine());
+			if(num==1)
+			{
+				LOGGER.log(Level.INFO,"Please choose number you want to edit:");
+				LOGGER.log(Level.INFO,"1. Name");
+				LOGGER.log(Level.INFO,"2. Description");
+				LOGGER.log(Level.INFO,"3. Image");
+				LOGGER.log(Level.INFO,"4. Price");
+				LOGGER.log(Level.INFO,"5. Quantity");
+				int option = Integer.parseInt(input3.nextLine());
+				if(option==1)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new name:");
+					String name=input3.nextLine();
+					exterior.get(number).setname(name);
+				}
+				else if(option==2)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Descriptione:");
+					String Description=input3.nextLine();
+					exterior.get(number).setdescriptions(Description);
+				}
+				else if(option==3)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Image:");
+					String Image=input3.nextLine();
+					exterior.get(number).setimage(Image);
+				}
+				else if(option==4)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new price:");
+					int price = Integer.parseInt(input3.nextLine());
+					exterior.get(number).setprices(price);
+				}
+				else if(option==5)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Quantity:");
+					int Quantity = Integer.parseInt(input3.nextLine());
+					exterior.get(number).setquant(Quantity);
+				}
+				
+				
+			}
+			if(num==2)
+			{
+				Exterior();
+			}	
 		}
 		if(number==exterior.size()+1)//add
 		{
@@ -161,11 +264,60 @@ public class Admin {
 	{
 		showelec();
 		Scanner input3 = new Scanner(System.in);
-		System.out.println("Please choose the number:");
+		LOGGER.log(Level.INFO,"Please choose the number:");
 		int number = Integer.parseInt(input3.nextLine());
 		if(number<=elect.size())
 		{
 			p.printelecdetails(number);
+			LOGGER.log(Level.INFO,"1. Edit");
+			LOGGER.log(Level.INFO,"2. Back");
+			int num = Integer.parseInt(input3.nextLine());
+			if(num==1)
+			{
+				LOGGER.log(Level.INFO,"Please choose number you want to edit:");
+				LOGGER.log(Level.INFO,"1. Name");
+				LOGGER.log(Level.INFO,"2. Description");
+				LOGGER.log(Level.INFO,"3. Image");
+				LOGGER.log(Level.INFO,"4. Price");
+				LOGGER.log(Level.INFO,"5. Quantity");
+				int option = Integer.parseInt(input3.nextLine());
+				if(option==1)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new name:");
+					String name=input3.nextLine();
+					elect.get(number).setname(name);
+				}
+				else if(option==2)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Descriptione:");
+					String Description=input3.nextLine();
+					elect.get(number).setdescriptions(Description);
+				}
+				else if(option==3)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Image:");
+					String Image=input3.nextLine();
+					elect.get(number).setimage(Image);
+				}
+				else if(option==4)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new price:");
+					int price = Integer.parseInt(input3.nextLine());
+					elect.get(number).setprices(price);
+				}
+				else if(option==5)
+				{
+					LOGGER.log(Level.INFO,"Please enter the new Quantity:");
+					int Quantity = Integer.parseInt(input3.nextLine());
+					elect.get(number).setquant(Quantity);
+				}
+				
+				
+			}
+			if(num==2)
+			{
+				 Electronic();
+			}	
 		}
 		if(number==elect.size()+1)//add
 		{
@@ -183,20 +335,20 @@ public class Admin {
 	private void editinterior() 
 	{
 		 Scanner input3 = new Scanner(System.in);
-			System.out.println("Please choose the number of product to edit:");
+		 LOGGER.log(Level.INFO,"Please choose the number of product to edit:");
 			int number = Integer.parseInt(input3.nextLine());
 			
-			System.out.println("Please choose the number of information to edit:");
-			System.out.println("1. Name");
-			System.out.println("2. Description");
-			System.out.println("3. image");
-			System.out.println("4. price");
-			System.out.println("5. install");
-			System.out.println("6. quantity");
+			LOGGER.log(Level.INFO,"Please choose the number of information to edit:");
+			LOGGER.log(Level.INFO,"1. Name");
+			LOGGER.log(Level.INFO,"2. Description");
+			LOGGER.log(Level.INFO,"3. image");
+			LOGGER.log(Level.INFO,"4. price");
+			LOGGER.log(Level.INFO,"5. install");
+			LOGGER.log(Level.INFO,"6. quantity");
 			int option = Integer.parseInt(input3.nextLine());
 			if(option==1)
 			{
-				System.out.println("Please enter the new name interior product:");
+				LOGGER.log(Level.INFO,"Please enter the new name interior product:");
 			     String name = input3.nextLine();
 			     editname(number,name);
 			     showinterior();
@@ -204,35 +356,35 @@ public class Admin {
 			
 			if(option==2)
 			{
-				System.out.println("Please enter the new description interior product:");
+				LOGGER.log(Level.INFO,"Please enter the new description interior product:");
 			     String desc = input3.nextLine();
 			     editdescription(number,desc);
 			     showinterior();
 			}
 			if(option==3)
 			{
-				System.out.println("Please enter the new image interior product:");
+				LOGGER.log(Level.INFO,"Please enter the new image interior product:");
 			     String image = input3.nextLine();
 			     editimage(number,image);
 			     showinterior();
 			}
 			if(option==4)
 			{
-				System.out.println("Please enter the new price interior product:");
+				LOGGER.log(Level.INFO,"Please enter the new price interior product:");
 				int price = Integer.parseInt(input3.nextLine());
 			     editprice(number,price);
 			     showinterior();
 			}
 			if(option==5)
 			{
-				System.out.println("Please enter the new install interior product:");
+				LOGGER.log(Level.INFO,"Please enter the new install interior product:");
 				 String install = input3.nextLine();
 			     editinstall(number,install);
 			     showinterior();
 			}
 			if(option==6)
 			{
-				System.out.println("Please enter the new quantity interior product:");
+				LOGGER.log(Level.INFO,"Please enter the new quantity interior product:");
 				int quantity = Integer.parseInt(input3.nextLine());
 			     editquantity(number,quantity);
 			     showinterior();
@@ -244,20 +396,20 @@ public class Admin {
 	private void editexterior() 
 	{
 		 Scanner input3 = new Scanner(System.in);
-			System.out.println("Please choose the number of product to edit:");
+		 LOGGER.log(Level.INFO,"Please choose the number of product to edit:");
 			int number = Integer.parseInt(input3.nextLine());
 			
-			System.out.println("Please choose the number of information to edit:");
-			System.out.println("1. Name");
-			System.out.println("2. Description");
-			System.out.println("3. image");
-			System.out.println("4. price");
-			System.out.println("5. install");
-			System.out.println("6. quantity");
+			LOGGER.log(Level.INFO,"Please choose the number of information to edit:");
+			LOGGER.log(Level.INFO,"1. Name");
+			LOGGER.log(Level.INFO,"2. Description");
+			LOGGER.log(Level.INFO,"3. image");
+			LOGGER.log(Level.INFO,"4. price");
+			LOGGER.log(Level.INFO,"5. install");
+			LOGGER.log(Level.INFO,"6. quantity");
 			int option = Integer.parseInt(input3.nextLine());
 			if(option==1)
 			{
-				System.out.println("Please enter the new name exterior product:");
+				LOGGER.log(Level.INFO,"Please enter the new name exterior product:");
 			     String name = input3.nextLine();
 			     editname1(number,name);
 			     showExterior();
@@ -265,35 +417,35 @@ public class Admin {
 			
 			if(option==2)
 			{
-				System.out.println("Please enter the new description exterior product:");
+				LOGGER.log(Level.INFO,"Please enter the new description exterior product:");
 			     String desc = input3.nextLine();
 			     editdescription1(number,desc);
 			     showExterior();
 			}
 			if(option==3)
 			{
-				System.out.println("Please enter the new image exterior product:");
+				LOGGER.log(Level.INFO,"Please enter the new image exterior product:");
 			     String image = input3.nextLine();
 			     editimage1(number,image);
 			     showExterior();
 			}
 			if(option==4)
 			{
-				System.out.println("Please enter the new price exterior product:");
+				LOGGER.log(Level.INFO,"Please enter the new price exterior product:");
 				int price = Integer.parseInt(input3.nextLine());
 			     editprice1(number,price);
 			     showExterior();
 			}
 			if(option==5)
 			{
-				System.out.println("Please enter the new install exterior product:");
+				LOGGER.log(Level.INFO,"Please enter the new install exterior product:");
 				 String install = input3.nextLine();
 			     editinstall1(number,install);
 			     showExterior();
 			}
 			if(option==6)
 			{
-				System.out.println("Please enter the new quantity exterior product:");
+				LOGGER.log(Level.INFO,"Please enter the new quantity exterior product:");
 				int quantity = Integer.parseInt(input3.nextLine());
 			     editquantity1(number,quantity);
 			     showExterior();
@@ -304,20 +456,20 @@ public class Admin {
 	private void editelect() 
 	{
 		 Scanner input3 = new Scanner(System.in);
-			System.out.println("Please choose the number of product to edit:");
+		 LOGGER.log(Level.INFO,"Please choose the number of product to edit:");
 			int number = Integer.parseInt(input3.nextLine());
 			
-			System.out.println("Please choose the number of information to edit:");
-			System.out.println("1. Name");
-			System.out.println("2. Description");
-			System.out.println("3. image");
-			System.out.println("4. price");
-			System.out.println("5. install");
-			System.out.println("6. quantity");
+			LOGGER.log(Level.INFO,"Please choose the number of information to edit:");
+			LOGGER.log(Level.INFO,"1. Name");
+			LOGGER.log(Level.INFO,"2. Description");
+			LOGGER.log(Level.INFO,"3. image");
+			LOGGER.log(Level.INFO,"4. price");
+			LOGGER.log(Level.INFO,"5. install");
+			LOGGER.log(Level.INFO,"6. quantity");
 			int option = Integer.parseInt(input3.nextLine());
 			if(option==1)
 			{
-				System.out.println("Please enter the new name electronic product:");
+				LOGGER.log(Level.INFO,"Please enter the new name electronic product:");
 			     String name = input3.nextLine();
 			     editname2(number,name);
 			     showelec();
@@ -325,35 +477,35 @@ public class Admin {
 			
 			if(option==2)
 			{
-				System.out.println("Please enter the new description electronic product:");
+				LOGGER.log(Level.INFO,"Please enter the new description electronic product:");
 			     String desc = input3.nextLine();
 			     editdescription2(number,desc);
 			     showelec();
 			}
 			if(option==3)
 			{
-				System.out.println("Please enter the new image electronic product:");
+				LOGGER.log(Level.INFO,"Please enter the new image electronic product:");
 			     String image = input3.nextLine();
 			     editimage2(number,image);
 			     showelec();
 			}
 			if(option==4)
 			{
-				System.out.println("Please enter the new price electronic product:");
+				LOGGER.log(Level.INFO,"Please enter the new price electronic product:");
 				int price = Integer.parseInt(input3.nextLine());
 			     editprice2(number,price);
 			     showelec();
 			}
 			if(option==5)
 			{
-				System.out.println("Please enter the new install electronic product:");
+				LOGGER.log(Level.INFO,"Please enter the new install electronic product:");
 				 String install = input3.nextLine();
 			     editinstall2(number,install);
 			     showelec();
 			}
 			if(option==6)
 			{
-				System.out.println("Please enter the new quantity electronic product:");
+				LOGGER.log(Level.INFO,"Please enter the new quantity electronic product:");
 				int quantity = Integer.parseInt(input3.nextLine());
 			     editquantity2(number,quantity);
 			     showelec();
@@ -435,23 +587,23 @@ public class Admin {
 	}
 	private void addinterior() 
 	{
-		 System.out.println("Please enter the new name interior product:");
+		LOGGER.log(Level.INFO,"Please enter the new name interior product:");
 		 Scanner input3 = new Scanner(System.in);
 	     String name = input3.nextLine();
 	     
-	     System.out.println("Please enter the new interior product description:");
+	     LOGGER.log(Level.INFO,"Please enter the new interior product description:");
 	     String description = input3.nextLine();
 	     
-	     System.out.println("Please enter the new interior product image:");
+	     LOGGER.log(Level.INFO,"Please enter the new interior product image:");
 	     String image = input3.nextLine();
 	     
-	     System.out.println("Please enter the new interior product price:");
+	     LOGGER.log(Level.INFO,"Please enter the new interior product price:");
 	     int price = Integer.parseInt(input3.nextLine());
 	     
-	     System.out.println("Please enter the new interior product install:");
+	     LOGGER.log(Level.INFO,"Please enter the new interior product install:");
 	     String install = input3.nextLine();
 	     
-	     System.out.println("Please enter the new interior product quantity:");
+	     LOGGER.log(Level.INFO,"Please enter the new interior product quantity:");
 	     int quantity = Integer.parseInt(input3.nextLine());
 	     
 	     addinteriorname(name,description,image,price,install,quantity);
@@ -460,23 +612,23 @@ public class Admin {
 	
 	private void addexterior() 
 	{
-		 System.out.println("Please enter the new name exterior product:");
+		LOGGER.log(Level.INFO,"Please enter the new name exterior product:");
 		 Scanner input3 = new Scanner(System.in);
 	     String name = input3.nextLine();
 	     
-	     System.out.println("Please enter the new exterior product description:");
+	     LOGGER.log(Level.INFO,"Please enter the new exterior product description:");
 	     String description = input3.nextLine();
 	     
-	     System.out.println("Please enter the new exterior product image:");
+	     LOGGER.log(Level.INFO,"Please enter the new exterior product image:");
 	     String image = input3.nextLine();
 	     
-	     System.out.println("Please enter the new exterior product price:");
+	     LOGGER.log(Level.INFO,"Please enter the new exterior product price:");
 	     int price = Integer.parseInt(input3.nextLine());
 	     
-	     System.out.println("Please enter the new exterior product install:");
+	     LOGGER.log(Level.INFO,"Please enter the new exterior product install:");
 	     String install = input3.nextLine();
 	     
-	     System.out.println("Please enter the new exterior product quantity:");
+	     LOGGER.log(Level.INFO,"Please enter the new exterior product quantity:");
 	     int quantity = Integer.parseInt(input3.nextLine());
 	     
 	     addexteriorname(name,description,image,price,install,quantity);
@@ -486,23 +638,23 @@ public class Admin {
 	
 	private void addelect() 
 	{
-		 System.out.println("Please enter the new name electronic product:");
+		LOGGER.log(Level.INFO,"Please enter the new name electronic product:");
 		 Scanner input3 = new Scanner(System.in);
 	     String name = input3.nextLine();
 	     
-	     System.out.println("Please enter the new electronic product description:");
+	     LOGGER.log(Level.INFO,"Please enter the new electronic product description:");
 	     String description = input3.nextLine();
 	     
-	     System.out.println("Please enter the new electronic product image:");
+	     LOGGER.log(Level.INFO,"Please enter the new electronic product image:");
 	     String image = input3.nextLine();
 	     
-	     System.out.println("Please enter the new electronic product price:");
+	     LOGGER.log(Level.INFO,"Please enter the new electronic product price:");
 	     int price = Integer.parseInt(input3.nextLine());
 	     
-	     System.out.println("Please enter the new electronic product install:");
+	     LOGGER.log(Level.INFO,"Please enter the new electronic product install:");
 	     String install = input3.nextLine();
 	     
-	     System.out.println("Please enter the new electronic product quantity:");
+	     LOGGER.log(Level.INFO,"Please enter the new electronic product quantity:");
 	     int quantity = Integer.parseInt(input3.nextLine());
 	     
 	     addelectronicrname(name,description,image,price,install,quantity);
@@ -529,14 +681,14 @@ public class Admin {
 		for (int i = 0; i < interior.size(); i++)
 		{
 	    x=i+1;
-		System.out.println( x + ". " + interior.get(i).getname());
+	    LOGGER.log(Level.INFO, x + ". " + interior.get(i).getname());
 		}
 		x++;
-	    System.out.println( x + ". Add");
+		LOGGER.log(Level.INFO, x + ". Add");
 	    x++;
-	    System.out.println( x + ". Edit");
+	    LOGGER.log(Level.INFO, x + ". Edit");
 	    x++;
-	    System.out.println( x + ". Back");
+	    LOGGER.log(Level.INFO, x + ". Back");
 	}
 	
 	public void showExterior()
@@ -545,14 +697,14 @@ public class Admin {
 		for (int i = 0; i < exterior.size(); i++)
 		{
 	    x=i+1;
-		System.out.println( x + ". " + exterior.get(i).getname());
+	    LOGGER.log(Level.INFO, x + ". " + exterior.get(i).getname());
 		}
 		x++;
-	    System.out.println( x + ". Add");
+		LOGGER.log(Level.INFO, x + ". Add");
 	    x++;
-	    System.out.println( x + ". Edit");
+	    LOGGER.log(Level.INFO, x + ". Edit");
 	    x++;
-	    System.out.println( x + ". Back");
+	    LOGGER.log(Level.INFO, x + ". Back");
 	}
 	
 	public void showelec()
@@ -561,23 +713,23 @@ public class Admin {
 		for (int i = 0; i < elect.size(); i++)
 		{
 	    x=i+1;
-		System.out.println( x + ". " + elect.get(i).getname());
+	    LOGGER.log(Level.INFO, x + ". " + elect.get(i).getname());
 		}
 		x++;
-	    System.out.println( x + ". Add");
+		LOGGER.log(Level.INFO, x + ". Add");
 	    x++;
-	    System.out.println( x + ". Edit");
+	    LOGGER.log(Level.INFO, x + ". Edit");
 	    x++;
-	    System.out.println( x + ". Back");
+	    LOGGER.log(Level.INFO,x + ". Back");
 	}
 	
 	private void delete() {
 		 Scanner input3 = new Scanner(System.in);
-			System.out.println("Please choose the number of category to delete:");
+		 LOGGER.log(Level.INFO,"Please choose the number of category to delete:");
 			int number = Integer.parseInt(input3.nextLine());
 			while(number > catagory.size())
 			{
-				System.out.println("Please choose valid number:");
+				LOGGER.log(Level.INFO,"Please choose valid number:");
 				delete();
 			}
 			deletecatagory(number);
@@ -591,14 +743,14 @@ public class Admin {
 	private void edit()
 	{
 		 Scanner input3 = new Scanner(System.in);
-		System.out.println("Please choose the number of category to edit:");
+		 LOGGER.log(Level.INFO,"Please choose the number of category to edit:");
 		int number = Integer.parseInt(input3.nextLine());
 		while(number > catagory.size())
 		{
-			System.out.println("Please choose valid number:");
+			LOGGER.log(Level.INFO,"Please choose valid number:");
 			edit();
 		}
-		System.out.println("write the new edit for category:");
+		LOGGER.log(Level.INFO,"write the new edit for category:");
 		String newname = input3.nextLine();
 		editcatagory(newname,number);
 		showcatagory();
@@ -608,7 +760,7 @@ public class Admin {
 	}
 	private void add()
 	{
-		 System.out.println("Please enter the new category:");
+		LOGGER.log(Level.INFO,"Please enter the new category:");
 		 Scanner input3 = new Scanner(System.in);
 	     String name = input3.nextLine();
 	     addcatagory(name);
@@ -681,7 +833,7 @@ public String checknameelectronic() {
 		    String passString = Integer.toString(pass);
 				if (passString.length() == 4)
 				{
-					System.out.println("Name:"+mylist.get(i).getname() +"  , Email: " + mylist.get(i).getemail() + "  , Address: " + mylist.get(i).getaddress());
+					LOGGER.log(Level.INFO,"Name:"+mylist.get(i).getname() +"  , Email: " + mylist.get(i).getemail() + "  , Address: " + mylist.get(i).getaddress());
 				}
 		}	
 	}
